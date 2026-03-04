@@ -2,6 +2,8 @@ import { Hono } from "hono"
 import { cors } from "hono/cors"
 import { logger } from "hono/logger"
 import { checkConnection } from "./db"
+import { loadAllCoursepacks } from "./coursepack-loader"
+import { createCoursepackRoutes } from "./routes/coursepacks"
 
 const app = new Hono()
 
@@ -18,15 +20,21 @@ app.onError((err, c) => {
 	)
 })
 
-// Health check
+// Load coursepacks
+const coursepacks = await loadAllCoursepacks()
+
+// Routes
 app.get("/api/health", async (c) => {
 	const mongoConnected = await checkConnection()
 	return c.json({
 		status: mongoConnected ? "ok" : "degraded",
 		mongo: mongoConnected ? "connected" : "disconnected",
+		coursepacks: coursepacks.size,
 		uptime: process.uptime(),
 	})
 })
+
+app.route("/api/coursepacks", createCoursepackRoutes(coursepacks))
 
 const port = Number.parseInt(process.env.PORT ?? "3000", 10)
 
@@ -35,4 +43,4 @@ export default {
 	fetch: app.fetch,
 }
 
-export { app }
+export { app, coursepacks }
