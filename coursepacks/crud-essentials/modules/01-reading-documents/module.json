@@ -1,0 +1,6 @@
+{
+	"id": "01-reading-documents",
+	"name": "Reading Documents",
+	"description": "Learn to query MongoDB collections using find, findOne, filters, projections, and sorting.",
+	"challenges": ["01-find-all"]
+}

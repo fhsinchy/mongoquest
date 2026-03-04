@@ -1,0 +1,17 @@
+{
+	"id": "01-find-all",
+	"title": "Find All Customers",
+	"description": "Retrieve all documents from the customers collection.",
+	"concept": "The find() method without any arguments returns all documents in a collection. This is the simplest MongoDB query and the foundation for everything else.",
+	"hint": "Call find() with no arguments: db.customers.find()",
+	"collection": "customers",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {}
+		}
+	},
+	"starterCode": "db.customers.find()",
+	"xp": 10
+}

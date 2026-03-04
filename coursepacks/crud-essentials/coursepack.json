@@ -1,0 +1,14 @@
+{
+	"id": "crud-essentials",
+	"name": "CRUD Essentials",
+	"version": "1.0.0",
+	"description": "Master MongoDB CRUD from zero to confident",
+	"author": "Farhan Hasin Chowdhury",
+	"difficulty": "beginner",
+	"estimatedHours": 6,
+	"database": {
+		"name": "local_business",
+		"seedDir": "./seed"
+	},
+	"modules": ["01-reading-documents"]
+}

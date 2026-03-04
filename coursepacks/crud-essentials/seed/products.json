@@ -1,0 +1,5 @@
+[
+	{ "name": "Organic Milk", "category": "dairy", "price": 4.99, "stock": 50, "supplier": "Local Farm", "tags": ["organic", "dairy"] },
+	{ "name": "Whole Wheat Bread", "category": "bakery", "price": 3.49, "stock": 30, "supplier": "City Bakery", "tags": ["whole-grain", "bakery"] },
+	{ "name": "Free Range Eggs", "category": "dairy", "price": 5.99, "stock": 40, "supplier": "Local Farm", "tags": ["organic", "free-range"] }
+]

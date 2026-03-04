@@ -1,0 +1,5 @@
+[
+	{ "name": "Alice Johnson", "email": "alice@example.com", "phone": "555-0101", "loyaltyTier": "gold", "memberSince": "2023-01-15" },
+	{ "name": "Bob Smith", "email": "bob@example.com", "phone": "555-0102", "loyaltyTier": "silver", "memberSince": "2023-06-20" },
+	{ "name": "Carol Davis", "email": "carol@example.com", "phone": "555-0103", "loyaltyTier": "bronze", "memberSince": "2024-02-10" }
+]

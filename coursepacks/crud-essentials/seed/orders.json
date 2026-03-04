@@ -1,0 +1,5 @@
+[
+	{ "customerId": "alice", "items": [{ "product": "Organic Milk", "qty": 2, "price": 4.99 }], "total": 9.98, "status": "shipped", "orderDate": "2024-12-01" },
+	{ "customerId": "bob", "items": [{ "product": "Whole Wheat Bread", "qty": 1, "price": 3.49 }], "total": 3.49, "status": "pending", "orderDate": "2024-12-15" },
+	{ "customerId": "alice", "items": [{ "product": "Free Range Eggs", "qty": 1, "price": 5.99 }], "total": 5.99, "status": "shipped", "orderDate": "2024-12-20" }
+]
