@@ -1,0 +1,20 @@
+{
+	"name": "mongoquest",
+	"private": true,
+	"workspaces": ["packages/*"],
+	"scripts": {
+		"dev": "bun run --filter '*' dev",
+		"build": "bun run --filter '*' build",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"typecheck": "bun run --filter '*' typecheck",
+		"test": "bun test",
+		"test:unit": "bun test --filter unit",
+		"test:integration": "bun test --filter integration",
+		"test:e2e": "bunx playwright test"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.4.5",
+		"typescript": "^5.9.3"
+	}
+}
