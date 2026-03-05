@@ -1,6 +1,7 @@
 import { Hono } from "hono"
 import { cors } from "hono/cors"
 import { logger } from "hono/logger"
+import { serveStatic } from "hono/bun"
 import { checkConnection } from "./db"
 import { loadAllCoursepacks } from "./coursepack-loader"
 import { createCoursepackRoutes } from "./routes/coursepacks"
@@ -37,6 +38,10 @@ app.get("/api/health", async (c) => {
 
 app.route("/api/coursepacks", createCoursepackRoutes(coursepacks))
 app.route("/api/coursepacks", createRunRoutes(coursepacks))
+
+// Serve static frontend
+app.use("/*", serveStatic({ root: "../client/build" }))
+app.get("/*", serveStatic({ path: "../client/build/200.html" }))
 
 const port = Number.parseInt(process.env.PORT ?? "3000", 10)
 
