@@ -1,1 +1,59 @@
 @import "tailwindcss";
+
+@theme {
+	--font-display: "Chakra Petch", sans-serif;
+	--font-mono: "IBM Plex Mono", monospace;
+
+	--color-void: #060a12;
+	--color-abyss: #0a0e17;
+	--color-deep: #0f1520;
+	--color-surface: #151d2b;
+	--color-raised: #1c2536;
+	--color-border: #232e42;
+	--color-muted: #64748b;
+	--color-text: #cbd5e1;
+	--color-bright: #e2e8f0;
+	--color-white: #f8fafc;
+
+	--color-emerald: #10b981;
+	--color-emerald-dim: #065f46;
+	--color-emerald-glow: #34d399;
+	--color-amber: #f59e0b;
+	--color-amber-dim: #78350f;
+	--color-ruby: #ef4444;
+	--color-ruby-dim: #7f1d1d;
+	--color-cyan: #22d3ee;
+}
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--color-border) transparent;
+}
+
+body {
+	font-family: var(--font-mono);
+	background-color: var(--color-abyss);
+	color: var(--color-text);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+	background-color: var(--color-emerald-dim);
+	color: var(--color-emerald-glow);
+}
+
+@keyframes fade-in {
+	from { opacity: 0; transform: translateY(8px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+	0%, 100% { box-shadow: 0 0 8px var(--color-emerald-dim); }
+	50% { box-shadow: 0 0 20px var(--color-emerald-dim); }
+}
+
+@keyframes shimmer {
+	0% { background-position: -200% 0; }
+	100% { background-position: 200% 0; }
+}
