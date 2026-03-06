@@ -10,5 +10,12 @@
 		"name": "local_business",
 		"seedDir": "./seed"
 	},
-	"modules": ["01-reading-documents"]
+	"modules": [
+		"01-reading-documents",
+		"02-creating-documents",
+		"03-updating-documents",
+		"04-deleting-documents",
+		"05-query-operators",
+		"06-capstone"
+	]
 }
