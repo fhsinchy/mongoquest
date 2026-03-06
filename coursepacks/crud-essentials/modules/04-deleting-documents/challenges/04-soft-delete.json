@@ -1,0 +1,25 @@
+{
+	"id": "04-soft-delete",
+	"title": "Soft-Delete a Customer",
+	"description": "Instead of deleting Frank Wilson, set his \"isActive\" field to false. This is called a soft delete.",
+	"concept": "A soft delete marks a document as inactive instead of removing it. This preserves historical data while hiding the record from active queries. Use $set to change a status field rather than deleteOne.",
+	"hint": "db.customers.updateOne({name: \"Frank Wilson\"}, {$set: {isActive: false}})",
+	"collection": "customers",
+	"type": "updateOne",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "fieldEquals",
+				"collection": "customers",
+				"filter": {
+					"name": "Frank Wilson"
+				},
+				"field": "isActive",
+				"expected": false
+			}
+		]
+	},
+	"starterCode": "db.customers.updateOne(\n\t{},\n\t{}\n)",
+	"xp": 20
+}

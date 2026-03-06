@@ -1,0 +1,6 @@
+{
+	"id": "04-deleting-documents",
+	"name": "Deleting Documents",
+	"description": "Learn to remove documents from collections using deleteOne, deleteMany, and the concept of soft deletes.",
+	"challenges": ["01-delete-one", "02-delete-many", "03-delete-with-filter", "04-soft-delete"]
+}

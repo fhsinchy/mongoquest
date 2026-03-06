@@ -1,0 +1,24 @@
+{
+	"id": "02-delete-many",
+	"title": "Purge All Cancelled Orders",
+	"description": "Delete all orders with a status of \"cancelled\".",
+	"concept": "deleteMany() removes all documents matching the filter. Be careful with deleteMany - there's no undo button! Always double-check your filter before running it.",
+	"hint": "db.orders.deleteMany({status: \"cancelled\"})",
+	"collection": "orders",
+	"type": "deleteMany",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "count",
+				"collection": "orders",
+				"filter": {
+					"status": "cancelled"
+				},
+				"expected": 0
+			}
+		]
+	},
+	"starterCode": "db.orders.deleteMany({\n\t\n})",
+	"xp": 20
+}

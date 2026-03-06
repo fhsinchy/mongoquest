@@ -1,0 +1,23 @@
+{
+	"id": "01-delete-one",
+	"title": "Remove a Cancelled Order",
+	"description": "Delete the cancelled order that has the note \"CANCELLED: Customer requested refund - order #CANCEL-001\".",
+	"concept": "deleteOne() removes a single document matching the filter. If multiple documents match, only the first one found is deleted. Use specific filters to target exact documents.",
+	"hint": "db.orders.deleteOne({notes: \"CANCELLED: Customer requested refund - order #CANCEL-001\"})",
+	"collection": "orders",
+	"type": "deleteOne",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "notExists",
+				"collection": "orders",
+				"filter": {
+					"notes": "CANCELLED: Customer requested refund - order #CANCEL-001"
+				}
+			}
+		]
+	},
+	"starterCode": "db.orders.deleteOne({\n\t\n})",
+	"xp": 15
+}

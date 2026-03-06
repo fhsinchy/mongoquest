@@ -1,0 +1,24 @@
+{
+	"id": "03-delete-with-filter",
+	"title": "Remove Out-of-Stock Products",
+	"description": "Delete all products that have zero stock.",
+	"concept": "You can use any valid MongoDB filter with deleteMany(). Combining field conditions lets you precisely target which documents to remove.",
+	"hint": "db.products.deleteMany({stock: 0})",
+	"collection": "products",
+	"type": "deleteMany",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "count",
+				"collection": "products",
+				"filter": {
+					"stock": 0
+				},
+				"expected": 0
+			}
+		]
+	},
+	"starterCode": "db.products.deleteMany({\n\t\n})",
+	"xp": 20
+}
