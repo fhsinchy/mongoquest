@@ -1,6 +1,7 @@
 <script lang="ts">
 import "../app.css"
 import { setContext } from "svelte"
+import SyncDropdown from "$lib/components/SyncDropdown.svelte"
 import { createProgressStore } from "$lib/stores/progress.svelte"
 
 let { children } = $props()
@@ -40,6 +41,9 @@ setContext("progress", progressStore)
 					<span class="font-semibold text-amber tabular-nums">{progressStore.state.streak.current}</span>
 				</div>
 			{/if}
+
+			<!-- Gist sync -->
+			<SyncDropdown />
 		</div>
 	</nav>
 

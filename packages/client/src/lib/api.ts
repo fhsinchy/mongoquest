@@ -1,3 +1,5 @@
+import type { ProgressState } from "$lib/stores/progress.svelte"
+
 interface ApiError {
 	code: string
 	message: string
@@ -104,17 +106,18 @@ export const api = {
 		})
 	},
 
-	syncGistSave(token: string, gistId: string, progress: unknown) {
-		return request<{ success: boolean }>("/sync/gist", {
+	syncGistSave(token: string, progress: unknown, gistId?: string) {
+		return request<{ success: boolean; gistId: string }>("/sync/gist/save", {
 			method: "POST",
 			body: JSON.stringify({ token, gistId, progress }),
 		})
 	},
 
 	syncGistLoad(token: string, gistId: string) {
-		return request<{ progress: unknown }>(
-			`/sync/gist?token=${encodeURIComponent(token)}&gistId=${encodeURIComponent(gistId)}`,
-		)
+		return request<{ success: boolean; progress: ProgressState }>("/sync/gist/load", {
+			method: "POST",
+			body: JSON.stringify({ token, gistId }),
+		})
 	},
 }
 

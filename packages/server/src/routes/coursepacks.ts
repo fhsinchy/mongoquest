@@ -62,38 +62,6 @@ export function createCoursepackRoutes(coursepacks: Map<string, LoadedCoursepack
 		return c.json({ success: true, ...result })
 	})
 
-	// Get module
-	router.get("/:id/modules/:moduleId", (c) => {
-		const cp = coursepacks.get(c.req.param("id"))
-		if (!cp) {
-			return c.json(
-				{
-					error: {
-						code: "COURSEPACK_NOT_FOUND",
-						message: `Coursepack '${c.req.param("id")}' not found`,
-					},
-				},
-				404,
-			)
-		}
-		const mod = cp.modules.find((m) => m.meta.id === c.req.param("moduleId"))
-		if (!mod) {
-			return c.json(
-				{
-					error: {
-						code: "MODULE_NOT_FOUND",
-						message: `Module '${c.req.param("moduleId")}' not found`,
-					},
-				},
-				404,
-			)
-		}
-		return c.json({
-			...mod.meta,
-			challenges: mod.challenges.map((ch) => ({ id: ch.id, title: ch.title, xp: ch.xp })),
-		})
-	})
-
 	// Get challenge (excludes validation)
 	router.get("/:id/modules/:moduleId/challenges/:challengeId", (c) => {
 		const cp = coursepacks.get(c.req.param("id"))
