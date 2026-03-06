@@ -1,5 +1,5 @@
 <script lang="ts">
-import type MonacoEditor from "./MonacoEditor.svelte"
+import MonacoEditor from "./MonacoEditor.svelte"
 import OutputDisplay from "./OutputDisplay.svelte"
 
 let {

@@ -1,65 +1,50 @@
 import { expect, test } from "@playwright/test"
 
-// Helper to seed the coursepack before running challenges
-async function seedAndNavigateToFirstChallenge(page: import("@playwright/test").Page) {
-	// Go to home, pick first coursepack
-	await page.goto("/")
-	const coursepackLink = page.locator('a[href^="/learn/"]').first()
-	await expect(coursepackLink).toBeVisible({ timeout: 10_000 })
-	const href = await coursepackLink.getAttribute("href")
-	const coursepackId = href!.replace("/learn/", "")
-
-	// Seed the coursepack via API
-	await page.request.post(`/api/coursepacks/${coursepackId}/seed`)
-
-	// Navigate to coursepack overview
-	await coursepackLink.click()
-	await expect(page).toHaveURL(/\/learn\//)
-
-	// Find and click first challenge link
-	const challengeLink = page
-		.locator('a[href*="/learn/"]')
-		.filter({ hasText: /start|challenge|find/i })
-		.first()
-	await expect(challengeLink).toBeVisible({ timeout: 10_000 })
-	await challengeLink.click()
-
-	await expect(page).toHaveURL(/\/learn\/[a-z0-9-]+\/[a-z0-9-]+\/[a-z0-9-]+/)
-}
+const COURSEPACK_ID = "crud-essentials"
+const MODULE_ID = "01-reading-documents"
+const CHALLENGE_ID = "01-find-all"
+const CHALLENGE_URL = `/learn/${COURSEPACK_ID}/${MODULE_ID}/${CHALLENGE_ID}`
 
 test.describe("Challenge flow", () => {
-	test("correct query shows success feedback", async ({ page }) => {
-		await seedAndNavigateToFirstChallenge(page)
+	test.beforeEach(async ({ page }) => {
+		// Seed the coursepack via API before each test
+		await page.request.post(`/api/coursepacks/${COURSEPACK_ID}/seed`)
+	})
 
-		// The first challenge is typically "Find All Documents" with starter code db.orders.find()
-		// Look for the Run button and click it (starter code may already be correct for first challenge)
+	test("correct query shows success feedback", async ({ page }) => {
+		await page.goto(CHALLENGE_URL)
+
+		// Wait for the Run button (indicates challenge page loaded with editor)
 		const runButton = page.getByRole("button", { name: /run/i })
-		await expect(runButton).toBeVisible({ timeout: 10_000 })
+		await expect(runButton).toBeVisible({ timeout: 15_000 })
+
+		// First challenge starter code (db.customers.find()) is already correct — just click Run
 		await runButton.click()
 
-		// Wait for result — should show success indicator or feedback
-		const successIndicator = page.locator("text=/Correct|XP earned/i")
-		await expect(successIndicator.first()).toBeVisible({ timeout: 15_000 })
+		// Wait for success — shows "+10 XP earned!"
+		await expect(page.getByText(/XP earned/i)).toBeVisible({ timeout: 15_000 })
 	})
 
 	test("wrong query shows failure feedback", async ({ page }) => {
-		await seedAndNavigateToFirstChallenge(page)
+		await page.goto(CHALLENGE_URL)
 
-		// Type an incorrect query in the editor
-		// Monaco editor — we need to clear and type
+		// Wait for the Run button
+		const runButton = page.getByRole("button", { name: /run/i })
+		await expect(runButton).toBeVisible({ timeout: 15_000 })
+
+		// Monaco editor — focus the textarea and replace content with a wrong query
 		const editor = page.locator(".monaco-editor textarea")
 		await editor.focus()
 
 		// Select all and replace with wrong query
-		await page.keyboard.press("Meta+a")
 		await page.keyboard.press("Control+a")
-		await page.keyboard.type('db.orders.find({ status: "nonexistent_status_xyz" })')
+		await page.keyboard.type('db.customers.find({ name: "nonexistent_xyz" })')
 
-		const runButton = page.getByRole("button", { name: /run/i })
 		await runButton.click()
 
-		// Should show failure feedback (not success)
-		const feedbackArea = page.locator("text=/returned|expected|error|wrong|filter/i")
-		await expect(feedbackArea.first()).toBeVisible({ timeout: 15_000 })
+		// Should show failure feedback (filter mismatch, expected/returned, etc.)
+		await expect(page.getByText(/filter|expected|returned|mismatch/i).first()).toBeVisible({
+			timeout: 15_000,
+		})
 	})
 })

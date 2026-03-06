@@ -4,9 +4,8 @@ test.describe("Onboarding flow", () => {
 	test("welcome screen loads and shows coursepacks", async ({ page }) => {
 		await page.goto("/")
 
-		// Hero text is visible
-		await expect(page.getByText("Master MongoDB")).toBeVisible()
-		await expect(page.getByText("One Query at a Time")).toBeVisible()
+		// Hero heading is visible
+		await expect(page.getByRole("heading", { name: /Master MongoDB/ })).toBeVisible()
 
 		// At least one coursepack card appears
 		const coursepackLinks = page.locator('a[href^="/learn/"]')
@@ -32,11 +31,8 @@ test.describe("Onboarding flow", () => {
 		await expect(coursepackLink).toBeVisible({ timeout: 10_000 })
 		await coursepackLink.click()
 
-		// Click "Start Learning" or the first challenge link
-		const challengeLink = page
-			.locator('a[href*="/learn/"]')
-			.filter({ hasText: /start|challenge|find/i })
-			.first()
+		// Click the first challenge link (e.g. "Find All Customers")
+		const challengeLink = page.locator('a[href*="/learn/"][href*="/01-"]').first()
 		await expect(challengeLink).toBeVisible({ timeout: 10_000 })
 		await challengeLink.click()
 

@@ -8,7 +8,8 @@
 			"!**/build",
 			"!**/dist",
 			"!.claude",
-			"!**/*.css"
+			"!**/*.css",
+			"!**/test-results"
 		]
 	},
 	"assist": { "actions": { "source": { "organizeImports": "on" } } },
@@ -47,6 +48,9 @@
 						"noUnusedVariables": "off",
 						"noUnusedImports": "off",
 						"noUnusedFunctionParameters": "off"
+					},
+					"style": {
+						"useImportType": "off"
 					}
 				}
 			}
