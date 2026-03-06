@@ -1,0 +1,30 @@
+{
+	"id": "03-insert-many",
+	"title": "Add Multiple Products",
+	"description": "Insert two new products at once: \"Rice Cakes\" (price: 3.99, category: \"snacks\") and \"Coconut Oil\" (price: 7.49, category: \"household\").",
+	"concept": "insertMany() accepts an array of documents and inserts them all in a single operation. This is more efficient than calling insertOne() multiple times.",
+	"hint": "Pass an array of documents: db.products.insertMany([{name: \"Rice Cakes\", ...}, {name: \"Coconut Oil\", ...}])",
+	"collection": "products",
+	"type": "insertMany",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "exists",
+				"collection": "products",
+				"filter": {
+					"name": "Rice Cakes"
+				}
+			},
+			{
+				"type": "exists",
+				"collection": "products",
+				"filter": {
+					"name": "Coconut Oil"
+				}
+			}
+		]
+	},
+	"starterCode": "db.products.insertMany([\n\t\n])",
+	"xp": 20
+}

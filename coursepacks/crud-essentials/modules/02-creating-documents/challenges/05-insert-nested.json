@@ -1,0 +1,34 @@
+{
+	"id": "05-insert-nested",
+	"title": "Add an Order with Items",
+	"description": "Insert a new order for customer \"alice-johnson\" with status \"pending\" and a total of 15.97. Include an items array with at least one item.",
+	"concept": "MongoDB documents can contain nested structures like arrays of objects. An order's items array holds objects with product details, making it easy to store related data together.",
+	"hint": "Include nested items: db.orders.insertOne({customerId: \"alice-johnson\", status: \"pending\", total: 15.97, items: [{product: \"Organic Milk\", qty: 2, price: 4.99}], ...})",
+	"collection": "orders",
+	"type": "insertOne",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "exists",
+				"collection": "orders",
+				"filter": {
+					"customerId": "alice-johnson",
+					"status": "pending"
+				}
+			},
+			{
+				"type": "fieldEquals",
+				"collection": "orders",
+				"filter": {
+					"customerId": "alice-johnson",
+					"status": "pending"
+				},
+				"field": "total",
+				"expected": 15.97
+			}
+		]
+	},
+	"starterCode": "db.orders.insertOne({\n\t\n})",
+	"xp": 20
+}

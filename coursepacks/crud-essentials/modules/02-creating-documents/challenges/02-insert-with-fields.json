@@ -1,0 +1,32 @@
+{
+	"id": "02-insert-with-fields",
+	"title": "Add a Complete Product",
+	"description": "Insert a new product called \"Sparkling Water\" with a price of 2.49 into the products collection.",
+	"concept": "When inserting documents, you can include as many fields as needed. Each field stores a value that can be a string, number, boolean, array, or nested object.",
+	"hint": "Include name, price, and other fields: db.products.insertOne({name: \"Sparkling Water\", price: 2.49, category: \"beverages\"})",
+	"collection": "products",
+	"type": "insertOne",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "exists",
+				"collection": "products",
+				"filter": {
+					"name": "Sparkling Water"
+				}
+			},
+			{
+				"type": "fieldEquals",
+				"collection": "products",
+				"filter": {
+					"name": "Sparkling Water"
+				},
+				"field": "price",
+				"expected": 2.49
+			}
+		]
+	},
+	"starterCode": "db.products.insertOne({\n\t\n})",
+	"xp": 15
+}

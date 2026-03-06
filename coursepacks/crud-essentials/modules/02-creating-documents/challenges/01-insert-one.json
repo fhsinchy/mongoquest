@@ -1,0 +1,23 @@
+{
+	"id": "01-insert-one",
+	"title": "Add a New Customer",
+	"description": "Insert a new customer named Zara Ahmed into the customers collection.",
+	"concept": "insertOne() adds a single document to a collection. MongoDB automatically generates a unique _id field if you don't provide one.",
+	"hint": "db.customers.insertOne({name: \"Zara Ahmed\", email: \"zara@example.com\"})",
+	"collection": "customers",
+	"type": "insertOne",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "exists",
+				"collection": "customers",
+				"filter": {
+					"name": "Zara Ahmed"
+				}
+			}
+		]
+	},
+	"starterCode": "db.customers.insertOne({\n\t\n})",
+	"xp": 15
+}

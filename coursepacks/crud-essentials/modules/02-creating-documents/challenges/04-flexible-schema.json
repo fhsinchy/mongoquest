@@ -1,0 +1,32 @@
+{
+	"id": "04-flexible-schema",
+	"title": "Customer with Extra Fields",
+	"description": "Insert a new customer named \"Riley Chen\" with a \"referredBy\" field set to \"Alice Johnson\". This field doesn't exist on other customers.",
+	"concept": "MongoDB has a flexible schema - documents in the same collection don't need identical fields. You can add new fields to any document without modifying the collection structure.",
+	"hint": "Just add the referredBy field: db.customers.insertOne({name: \"Riley Chen\", email: \"riley@example.com\", referredBy: \"Alice Johnson\"})",
+	"collection": "customers",
+	"type": "insertOne",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "exists",
+				"collection": "customers",
+				"filter": {
+					"name": "Riley Chen"
+				}
+			},
+			{
+				"type": "fieldEquals",
+				"collection": "customers",
+				"filter": {
+					"name": "Riley Chen"
+				},
+				"field": "referredBy",
+				"expected": "Alice Johnson"
+			}
+		]
+	},
+	"starterCode": "db.customers.insertOne({\n\t\n})",
+	"xp": 20
+}

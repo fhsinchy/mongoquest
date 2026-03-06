@@ -1,0 +1,6 @@
+{
+	"id": "02-creating-documents",
+	"name": "Creating Documents",
+	"description": "Learn to insert new documents into MongoDB collections using insertOne and insertMany.",
+	"challenges": ["01-insert-one", "02-insert-with-fields", "03-insert-many", "04-flexible-schema", "05-insert-nested"]
+}
