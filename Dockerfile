@@ -37,4 +37,5 @@ COPY --from=build /app/packages/client/build ./packages/client/build
 COPY --from=build /app/package.json ./
 EXPOSE 3000
 ENV NODE_ENV=production
-CMD ["bun", "run", "packages/server/src/index.ts"]
+WORKDIR /app/packages/server
+CMD ["bun", "run", "src/index.ts"]
