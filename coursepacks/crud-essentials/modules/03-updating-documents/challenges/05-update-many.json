@@ -1,0 +1,25 @@
+{
+	"id": "05-update-many",
+	"title": "Mark Dairy Products on Sale",
+	"description": "Set the field \"onSale\" to true for all products in the dairy category.",
+	"concept": "updateMany() modifies all documents matching the filter. Use it when you need to apply the same change to multiple documents at once.",
+	"hint": "db.products.updateMany({category: \"dairy\"}, {$set: {onSale: true}})",
+	"collection": "products",
+	"type": "updateMany",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "count",
+				"collection": "products",
+				"filter": {
+					"category": "dairy",
+					"onSale": true
+				},
+				"expected": 12
+			}
+		]
+	},
+	"starterCode": "db.products.updateMany(\n\t{},\n\t{}\n)",
+	"xp": 25
+}

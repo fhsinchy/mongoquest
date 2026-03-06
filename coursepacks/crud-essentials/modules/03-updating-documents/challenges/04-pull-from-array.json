@@ -1,0 +1,24 @@
+{
+	"id": "04-pull-from-array",
+	"title": "Remove a Product Tag",
+	"description": "Remove the tag \"bakery\" from the Whole Wheat Bread product.",
+	"concept": "The $pull operator removes all instances of a value from an array. Unlike $push, it searches through the array and removes every matching element.",
+	"hint": "db.products.updateOne({name: \"Whole Wheat Bread\"}, {$pull: {tags: \"bakery\"}})",
+	"collection": "products",
+	"type": "updateOne",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "notExists",
+				"collection": "products",
+				"filter": {
+					"name": "Whole Wheat Bread",
+					"tags": "bakery"
+				}
+			}
+		]
+	},
+	"starterCode": "db.products.updateOne(\n\t{},\n\t{}\n)",
+	"xp": 20
+}

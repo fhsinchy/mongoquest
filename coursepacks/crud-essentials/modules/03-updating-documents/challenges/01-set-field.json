@@ -1,0 +1,25 @@
+{
+	"id": "01-set-field",
+	"title": "Update Customer Phone",
+	"description": "Update Bob Smith's phone number to \"555-9999\".",
+	"concept": "updateOne() modifies a single document matching the filter. The $set operator changes the value of a field, or creates it if it doesn't exist.",
+	"hint": "db.customers.updateOne({name: \"Bob Smith\"}, {$set: {phone: \"555-9999\"}})",
+	"collection": "customers",
+	"type": "updateOne",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "fieldEquals",
+				"collection": "customers",
+				"filter": {
+					"name": "Bob Smith"
+				},
+				"field": "phone",
+				"expected": "555-9999"
+			}
+		]
+	},
+	"starterCode": "db.customers.updateOne(\n\t{},\n\t{}\n)",
+	"xp": 15
+}

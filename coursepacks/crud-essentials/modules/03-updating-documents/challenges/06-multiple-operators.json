@@ -1,0 +1,24 @@
+{
+	"id": "06-multiple-operators",
+	"title": "Process an Order",
+	"description": "Find the first pending order for customer \"bob-smith\" and update its status to \"processing\".",
+	"concept": "You can combine multiple update operators in a single updateOne call. The $set operator can change multiple fields at once, making it easy to update related data together.",
+	"hint": "db.orders.updateOne({customerId: \"bob-smith\", status: \"pending\"}, {$set: {status: \"processing\"}})",
+	"collection": "orders",
+	"type": "updateOne",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "exists",
+				"collection": "orders",
+				"filter": {
+					"customerId": "bob-smith",
+					"status": "processing"
+				}
+			}
+		]
+	},
+	"starterCode": "db.orders.updateOne(\n\t{},\n\t{}\n)",
+	"xp": 25
+}

@@ -1,0 +1,25 @@
+{
+	"id": "02-inc-field",
+	"title": "Restock a Product",
+	"description": "Increase the stock of \"Organic Milk\" by 20 units.",
+	"concept": "The $inc operator increments a numeric field by a specified amount. Use positive values to increase and negative values to decrease.",
+	"hint": "db.products.updateOne({name: \"Organic Milk\"}, {$inc: {stock: 20}})",
+	"collection": "products",
+	"type": "updateOne",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "fieldEquals",
+				"collection": "products",
+				"filter": {
+					"name": "Organic Milk"
+				},
+				"field": "stock",
+				"expected": 70
+			}
+		]
+	},
+	"starterCode": "db.products.updateOne(\n\t{},\n\t{}\n)",
+	"xp": 20
+}

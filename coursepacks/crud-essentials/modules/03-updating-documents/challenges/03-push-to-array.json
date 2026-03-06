@@ -1,0 +1,24 @@
+{
+	"id": "03-push-to-array",
+	"title": "Add a Product Tag",
+	"description": "Add the tag \"premium\" to the Organic Milk product.",
+	"concept": "The $push operator appends a value to an array field. If the array doesn't exist, $push creates it with the value as its only element.",
+	"hint": "db.products.updateOne({name: \"Organic Milk\"}, {$push: {tags: \"premium\"}})",
+	"collection": "products",
+	"type": "updateOne",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "exists",
+				"collection": "products",
+				"filter": {
+					"name": "Organic Milk",
+					"tags": "premium"
+				}
+			}
+		]
+	},
+	"starterCode": "db.products.updateOne(\n\t{},\n\t{}\n)",
+	"xp": 20
+}

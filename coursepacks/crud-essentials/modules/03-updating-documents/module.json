@@ -1,0 +1,13 @@
+{
+	"id": "03-updating-documents",
+	"name": "Updating Documents",
+	"description": "Learn to modify existing documents using updateOne, updateMany, and update operators like $set, $inc, $push, and $pull.",
+	"challenges": [
+		"01-set-field",
+		"02-inc-field",
+		"03-push-to-array",
+		"04-pull-from-array",
+		"05-update-many",
+		"06-multiple-operators"
+	]
+}
