@@ -1,0 +1,19 @@
+{
+	"id": "06-nested-fields",
+	"title": "Orders by City",
+	"description": "Find all orders being delivered to Springfield.",
+	"concept": "Use dot notation to query nested fields. Wrap the field path in quotes: {\"parent.child\": value}. This works at any nesting depth.",
+	"hint": "db.orders.find({\"deliveryAddress.city\": \"Springfield\"})",
+	"collection": "orders",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {
+				"deliveryAddress.city": "Springfield"
+			}
+		}
+	},
+	"starterCode": "db.orders.find({})",
+	"xp": 25
+}

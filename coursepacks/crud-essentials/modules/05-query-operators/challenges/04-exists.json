@@ -1,0 +1,21 @@
+{
+	"id": "04-exists",
+	"title": "Products Without a Brand",
+	"description": "Find all products that do not have a brand field.",
+	"concept": "The $exists operator checks whether a field is present in a document. Use {$exists: false} to find documents missing a field, or {$exists: true} to find those that have it.",
+	"hint": "db.products.find({brand: {$exists: false}})",
+	"collection": "products",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {
+				"brand": {
+					"$exists": false
+				}
+			}
+		}
+	},
+	"starterCode": "db.products.find({})",
+	"xp": 25
+}

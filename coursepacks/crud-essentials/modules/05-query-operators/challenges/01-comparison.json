@@ -1,0 +1,21 @@
+{
+	"id": "01-comparison",
+	"title": "Find Expensive Products",
+	"description": "Find all products with a price of $20 or more.",
+	"concept": "Comparison operators like $gt, $gte, $lt, $lte let you filter by ranges. Wrap the operator in an object: {field: {$gte: value}}.",
+	"hint": "db.products.find({price: {$gte: 20}})",
+	"collection": "products",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {
+				"price": {
+					"$gte": 20
+				}
+			}
+		}
+	},
+	"starterCode": "db.products.find({})",
+	"xp": 20
+}

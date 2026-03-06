@@ -1,0 +1,28 @@
+{
+	"id": "05-and-or",
+	"title": "Complex Customer Search",
+	"description": "Find customers who are either gold tier OR have spent $3000 or more.",
+	"concept": "The $or operator matches documents that satisfy at least one of the given conditions. Each condition in the array is evaluated independently.",
+	"hint": "db.customers.find({$or: [{loyaltyTier: \"gold\"}, {totalSpent: {$gte: 3000}}]})",
+	"collection": "customers",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {
+				"$or": [
+					{
+						"loyaltyTier": "gold"
+					},
+					{
+						"totalSpent": {
+							"$gte": 3000
+						}
+					}
+				]
+			}
+		}
+	},
+	"starterCode": "db.customers.find({})",
+	"xp": 25
+}

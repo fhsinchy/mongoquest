@@ -1,0 +1,21 @@
+{
+	"id": "07-array-queries",
+	"title": "Products with Specific Tags",
+	"description": "Find products that have both \"organic\" and \"local\" tags.",
+	"concept": "The $all operator matches arrays containing all specified elements, regardless of order. Use it when you need documents with multiple specific values in an array field.",
+	"hint": "db.products.find({tags: {$all: [\"organic\", \"local\"]}})",
+	"collection": "products",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {
+				"tags": {
+					"$all": ["organic", "local"]
+				}
+			}
+		}
+	},
+	"starterCode": "db.products.find({})",
+	"xp": 30
+}

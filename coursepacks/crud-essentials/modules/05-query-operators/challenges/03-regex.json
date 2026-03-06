@@ -1,0 +1,21 @@
+{
+	"id": "03-regex",
+	"title": "Search Products by Name",
+	"description": "Find all products whose name contains the word \"Organic\".",
+	"concept": "The $regex operator enables pattern matching on string fields. Use it to search for partial matches, like finding all products containing a specific word.",
+	"hint": "db.products.find({name: {$regex: \"Organic\"}})",
+	"collection": "products",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {
+				"name": {
+					"$regex": "Organic"
+				}
+			}
+		}
+	},
+	"starterCode": "db.products.find({})",
+	"xp": 25
+}

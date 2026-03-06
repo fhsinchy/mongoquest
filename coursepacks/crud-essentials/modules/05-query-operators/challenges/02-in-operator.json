@@ -1,0 +1,21 @@
+{
+	"id": "02-in-operator",
+	"title": "Products in Categories",
+	"description": "Find all products that are in either the \"dairy\" or \"bakery\" category.",
+	"concept": "The $in operator matches any value in an array of possibilities. It's like a shorthand for multiple OR conditions on the same field.",
+	"hint": "db.products.find({category: {$in: [\"dairy\", \"bakery\"]}})",
+	"collection": "products",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {
+				"category": {
+					"$in": ["dairy", "bakery"]
+				}
+			}
+		}
+	},
+	"starterCode": "db.products.find({})",
+	"xp": 20
+}
