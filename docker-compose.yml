@@ -27,5 +27,19 @@ services:
       timeout: 5s
       retries: 5
 
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URI: mongodb://admin:mongoquest@mongo:27017
+      COURSEPACK_DIR: /app/coursepacks
+      NODE_ENV: production
+    volumes:
+      - ./coursepacks:/app/coursepacks:ro,Z
+    depends_on:
+      mongo:
+        condition: service_healthy
+
 volumes:
   mongo-data:
