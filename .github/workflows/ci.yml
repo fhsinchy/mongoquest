@@ -60,9 +60,12 @@ jobs:
     needs: [lint-and-typecheck, unit-tests, integration-tests]
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
-      - run: bunx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium
       - run: docker compose up -d
       - name: Wait for app health
         run: |
@@ -76,8 +79,10 @@ jobs:
           echo "App failed to become healthy"
           docker compose logs
           exit 1
-      - run: bunx playwright test --config packages/client/playwright.config.ts
-      - run: docker compose down
+      - run: npx playwright test --config packages/client/playwright.config.ts
+      - name: Cleanup
+        if: always()
+        run: docker compose down
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
