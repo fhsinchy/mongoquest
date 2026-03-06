@@ -134,6 +134,20 @@ export function createRunRoutes(coursepacks: Map<string, LoadedCoursepack>) {
 		if (expectedConfig.limit) cursor.limit(expectedConfig.limit)
 		expectedDocs = await cursor.toArray()
 
+		// Guard against unseeded database — both sides empty means no data
+		if (expectedDocs.length === 0) {
+			const totalDocs = await collection.countDocuments()
+			if (totalDocs === 0) {
+				return c.json({
+					success: false,
+					result,
+					feedback:
+						'The collection appears to be empty. Click "Seed Database" on the coursepack overview page first.',
+					error: null,
+				})
+			}
+		}
+
 		// Handle scalar results (countDocuments)
 		if (plan.operation === "countDocuments") {
 			const passed = result === expectedDocs.length

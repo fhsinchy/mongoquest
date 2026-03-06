@@ -29,7 +29,9 @@ The platform ships with **coursepacks** — collections of themed modules and ch
 
 ### GitHub Codespaces (recommended)
 
-Click the button above. The environment starts automatically with MongoDB, Bun, and the dev server. Port 3000 opens in your browser.
+Click the button above. The environment starts automatically with MongoDB, Bun, and the dev server.
+
+Once the terminal shows the Vite dev server running, go to the **Ports** tab, right-click port **5173**, and set visibility to **Public**. Then open the forwarded URL.
 
 ### Docker Compose
 
