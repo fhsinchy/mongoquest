@@ -1,0 +1,6 @@
+{
+	"id": "06-capstone",
+	"name": "Capstone",
+	"description": "Put it all together with challenges that combine multiple CRUD concepts and query techniques.",
+	"challenges": ["01-inventory-report", "02-customer-search", "03-order-cleanup", "04-bulk-restock", "05-seasonal-cleanup"]
+}

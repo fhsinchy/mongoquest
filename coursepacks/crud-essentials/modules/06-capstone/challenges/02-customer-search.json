@@ -1,0 +1,24 @@
+{
+	"id": "02-customer-search",
+	"title": "VIP Customers in Springfield",
+	"description": "Find all gold-tier customers who live in Springfield, sorted by totalSpent descending.",
+	"concept": "Combining multiple filter conditions with dot notation for nested fields creates precise queries. MongoDB implicitly ANDs all top-level conditions in a filter.",
+	"hint": "db.customers.find({loyaltyTier: \"gold\", \"address.city\": \"Springfield\"}).sort({totalSpent: -1})",
+	"collection": "customers",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {
+				"loyaltyTier": "gold",
+				"address.city": "Springfield"
+			},
+			"sort": {
+				"totalSpent": -1
+			}
+		},
+		"orderSensitive": true
+	},
+	"starterCode": "db.customers.find({})",
+	"xp": 35
+}

@@ -1,0 +1,25 @@
+{
+	"id": "04-bulk-restock",
+	"title": "Restock Dairy Products",
+	"description": "For all dairy products, set isAvailable to true and increase stock by 50.",
+	"concept": "You can combine $set and $inc in a single update operation. This is more efficient than running two separate updates and ensures both changes happen atomically.",
+	"hint": "db.products.updateMany({category: \"dairy\"}, {$set: {isAvailable: true}, $inc: {stock: 50}})",
+	"collection": "products",
+	"type": "updateMany",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "count",
+				"collection": "products",
+				"filter": {
+					"category": "dairy",
+					"isAvailable": true
+				},
+				"expected": 12
+			}
+		]
+	},
+	"starterCode": "db.products.updateMany(\n\t{},\n\t{}\n)",
+	"xp": 40
+}

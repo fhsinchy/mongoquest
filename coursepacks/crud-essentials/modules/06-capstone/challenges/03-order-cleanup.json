@@ -1,0 +1,25 @@
+{
+	"id": "03-order-cleanup",
+	"title": "Archive Cancelled Orders",
+	"description": "Mark all cancelled orders as archived by setting the \"archived\" field to true on every order with status \"cancelled\".",
+	"concept": "Using updateMany with $set is a common pattern for bulk status changes. Instead of deleting data, archiving preserves it for future reference.",
+	"hint": "db.orders.updateMany({status: \"cancelled\"}, {$set: {archived: true}})",
+	"collection": "orders",
+	"type": "updateMany",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "count",
+				"collection": "orders",
+				"filter": {
+					"status": "cancelled",
+					"archived": true
+				},
+				"expected": 20
+			}
+		]
+	},
+	"starterCode": "db.orders.updateMany(\n\t{},\n\t{}\n)",
+	"xp": 40
+}

@@ -1,0 +1,25 @@
+{
+	"id": "05-seasonal-cleanup",
+	"title": "Remove Expired Seasonal Items",
+	"description": "Delete all products that have the \"seasonal\" tag and are out of stock (stock is 0).",
+	"concept": "Combining array element matching with other field conditions lets you precisely target documents. Here you're matching an array element (tag) AND a field condition (stock) together.",
+	"hint": "db.products.deleteMany({tags: \"seasonal\", stock: 0})",
+	"collection": "products",
+	"type": "deleteMany",
+	"validation": {
+		"strategy": "document_check",
+		"checks": [
+			{
+				"type": "count",
+				"collection": "products",
+				"filter": {
+					"tags": "seasonal",
+					"stock": 0
+				},
+				"expected": 0
+			}
+		]
+	},
+	"starterCode": "db.products.deleteMany({\n\t\n})",
+	"xp": 50
+}

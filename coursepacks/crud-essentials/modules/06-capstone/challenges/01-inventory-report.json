@@ -1,0 +1,31 @@
+{
+	"id": "01-inventory-report",
+	"title": "Low Stock Report",
+	"description": "Find all products with stock less than 10, sorted by stock ascending. Only return the name, stock, and category fields (exclude _id).",
+	"concept": "Combining filters, sorting, and projections lets you build powerful queries. This pattern is common for generating reports from your data.",
+	"hint": "db.products.find({stock: {$lt: 10}}, {name: 1, stock: 1, category: 1, _id: 0}).sort({stock: 1})",
+	"collection": "products",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {
+				"stock": {
+					"$lt": 10
+				}
+			},
+			"projection": {
+				"name": 1,
+				"stock": 1,
+				"category": 1,
+				"_id": 0
+			},
+			"sort": {
+				"stock": 1
+			}
+		},
+		"orderSensitive": true
+	},
+	"starterCode": "db.products.find({})",
+	"xp": 30
+}
