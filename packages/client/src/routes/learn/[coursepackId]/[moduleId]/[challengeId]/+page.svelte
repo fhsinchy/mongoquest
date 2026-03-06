@@ -4,7 +4,7 @@
 	import { getContext } from "svelte"
 	import { api } from "$lib/api"
 	import type { CoursepackDetail, ChallengeDetail } from "$lib/api"
-	import type { ProgressState } from "$lib/stores/progress"
+	import type { ProgressState } from "$lib/stores/progress.svelte"
 	import ChallengePane from "$lib/components/ChallengePane.svelte"
 	import EditorPane from "$lib/components/EditorPane.svelte"
 	import ModuleSidebar from "$lib/components/ModuleSidebar.svelte"

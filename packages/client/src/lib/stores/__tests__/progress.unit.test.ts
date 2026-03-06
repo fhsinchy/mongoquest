@@ -6,7 +6,7 @@ import {
 	isChallengeCompleted,
 	defaultProgress,
 	type ProgressState,
-} from "../progress"
+} from "../progress.svelte"
 
 describe("calculateStreak", () => {
 	test("returns 1 for first activity", () => {

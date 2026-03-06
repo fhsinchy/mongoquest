@@ -19,6 +19,22 @@
 	let monaco: typeof Monaco | undefined
 
 	onMount(async () => {
+		// Configure Monaco workers before importing
+		self.MonacoEnvironment = {
+			getWorker(_: string, label: string) {
+				if (label === "typescript" || label === "javascript") {
+					return new Worker(
+						new URL("monaco-editor/esm/vs/language/typescript/ts.worker.js", import.meta.url),
+						{ type: "module" },
+					)
+				}
+				return new Worker(
+					new URL("monaco-editor/esm/vs/editor/editor.worker.js", import.meta.url),
+					{ type: "module" },
+				)
+			},
+		}
+
 		monaco = await import("monaco-editor")
 
 		monaco.editor.defineTheme("mongoquest", {

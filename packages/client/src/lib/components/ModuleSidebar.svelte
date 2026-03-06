@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ProgressBar from "./ProgressBar.svelte"
-	import type { ProgressState } from "$lib/stores/progress"
+	import type { ProgressState } from "$lib/stores/progress.svelte"
 
 	interface Module {
 		id: string

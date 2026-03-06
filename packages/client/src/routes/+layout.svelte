@@ -1,6 +1,6 @@
 <script lang="ts">
 	import "../app.css"
-	import { createProgressStore } from "$lib/stores/progress"
+	import { createProgressStore } from "$lib/stores/progress.svelte"
 	import { setContext } from "svelte"
 
 	let { children } = $props()

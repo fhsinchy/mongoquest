@@ -3,7 +3,7 @@
 	import { api } from "$lib/api"
 	import type { CoursepackDetail } from "$lib/api"
 	import { getContext } from "svelte"
-	import type { ProgressState } from "$lib/stores/progress"
+	import type { ProgressState } from "$lib/stores/progress.svelte"
 	import ProgressBar from "$lib/components/ProgressBar.svelte"
 
 	const progressStore: { state: ProgressState } = getContext("progress")
