@@ -23,7 +23,7 @@ export async function executeQuery(query: string, dbName: string): Promise<Execu
 		case "find": {
 			let cursor = collection.find(plan.filter ?? {}, { maxTimeMS: QUERY_TIMEOUT_MS })
 			if (plan.options.projection) cursor = cursor.project(plan.options.projection)
-			if (plan.options.sort) cursor = cursor.sort(plan.options.sort)
+			if (plan.options.sort) cursor = cursor.sort(plan.options.sort as Record<string, 1 | -1>)
 			if (plan.options.skip) cursor = cursor.skip(plan.options.skip)
 			if (plan.options.limit) cursor = cursor.limit(plan.options.limit)
 			result = await cursor.toArray()

@@ -49,6 +49,9 @@ jobs:
       - run: bun test --filter integration
         env:
           MONGO_URI: mongodb://admin:mongoquest@localhost:27017
+          MONGO_READONLY_USER: admin
+          MONGO_WRITER_USER: admin
+          MONGO_PASSWORD: mongoquest
           COURSEPACK_DIR: ./coursepacks
 
   e2e-tests:

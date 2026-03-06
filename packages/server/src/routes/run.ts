@@ -122,7 +122,7 @@ export function createRunRoutes(coursepacks: Map<string, LoadedCoursepack>) {
 		let expectedDocs: unknown[]
 		const cursor = collection.find(expectedConfig.filter ?? {})
 		if (expectedConfig.projection) cursor.project(expectedConfig.projection)
-		if (expectedConfig.sort) cursor.sort(expectedConfig.sort)
+		if (expectedConfig.sort) cursor.sort(expectedConfig.sort as Record<string, 1 | -1>)
 		if (expectedConfig.skip) cursor.skip(expectedConfig.skip)
 		if (expectedConfig.limit) cursor.limit(expectedConfig.limit)
 		expectedDocs = await cursor.toArray()
