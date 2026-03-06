@@ -1,4 +1,4 @@
-import { type Token, type TokenType, ParseError } from "./types"
+import { ParseError, type Token, type TokenType } from "./types"
 
 export function tokenize(input: string): Token[] {
 	const tokens: Token[] = []

@@ -30,7 +30,10 @@ interface FieldEqualsCheck {
 
 type DocumentCheck = CountCheck | ExistsCheck | NotExistsCheck | FieldEqualsCheck
 
-export async function runDocumentChecks(db: Db, checks: DocumentCheck[]): Promise<ValidationResult> {
+export async function runDocumentChecks(
+	db: Db,
+	checks: DocumentCheck[],
+): Promise<ValidationResult> {
 	for (const check of checks) {
 		const collection = db.collection(check.collection)
 

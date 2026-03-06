@@ -1,10 +1,10 @@
-export { CoursepackManifestSchema, type CoursepackManifest } from "./coursepack"
-export { ModuleSchema, type Module } from "./module"
 export {
-	ChallengeSchema,
-	ValidationSchema,
 	CHALLENGE_TYPES,
 	type Challenge,
-	type ValidationConfig,
+	ChallengeSchema,
 	type ChallengeType,
+	type ValidationConfig,
+	ValidationSchema,
 } from "./challenge"
+export { type CoursepackManifest, CoursepackManifestSchema } from "./coursepack"
+export { type Module, ModuleSchema } from "./module"

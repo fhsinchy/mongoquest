@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test"
+import { expect, test } from "@playwright/test"
 
 test.describe("Onboarding flow", () => {
 	test("welcome screen loads and shows coursepacks", async ({ page }) => {
@@ -33,7 +33,10 @@ test.describe("Onboarding flow", () => {
 		await coursepackLink.click()
 
 		// Click "Start Learning" or the first challenge link
-		const challengeLink = page.locator('a[href*="/learn/"]').filter({ hasText: /start|challenge|find/i }).first()
+		const challengeLink = page
+			.locator('a[href*="/learn/"]')
+			.filter({ hasText: /start|challenge|find/i })
+			.first()
 		await expect(challengeLink).toBeVisible({ timeout: 10_000 })
 		await challengeLink.click()
 

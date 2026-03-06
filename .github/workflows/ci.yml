@@ -49,6 +49,7 @@ jobs:
       - run: bun test --filter integration
         env:
           MONGO_URI: mongodb://admin:mongoquest@localhost:27017
+          COURSEPACK_DIR: ./coursepacks
 
   e2e-tests:
     name: E2E Tests

@@ -1,6 +1,6 @@
 <script lang="ts">
-	let { completed = 0, total = 1 }: { completed: number; total: number } = $props()
-	let pct = $derived(total > 0 ? Math.round((completed / total) * 100) : 0)
+let { completed = 0, total = 1 }: { completed: number; total: number } = $props()
+let pct = $derived(total > 0 ? Math.round((completed / total) * 100) : 0)
 </script>
 
 <div class="flex items-center gap-3">

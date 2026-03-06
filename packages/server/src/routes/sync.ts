@@ -9,7 +9,9 @@ syncRouter.post("/gist/save", async (c) => {
 	const body = await c.req.json().catch(() => null)
 	if (!body?.token || !body?.progress) {
 		return c.json(
-			{ error: { code: "INVALID_REQUEST", message: "Request must include 'token' and 'progress'" } },
+			{
+				error: { code: "INVALID_REQUEST", message: "Request must include 'token' and 'progress'" },
+			},
 			400,
 		)
 	}
@@ -40,7 +42,13 @@ syncRouter.post("/gist/save", async (c) => {
 	if (!response.ok) {
 		const err = await response.text()
 		return c.json(
-			{ error: { code: "GIST_API_ERROR", message: `GitHub API error: ${response.status}`, details: err } },
+			{
+				error: {
+					code: "GIST_API_ERROR",
+					message: `GitHub API error: ${response.status}`,
+					details: err,
+				},
+			},
 			response.status as 400,
 		)
 	}
@@ -70,7 +78,13 @@ syncRouter.post("/gist/load", async (c) => {
 	if (!response.ok) {
 		const err = await response.text()
 		return c.json(
-			{ error: { code: "GIST_API_ERROR", message: `GitHub API error: ${response.status}`, details: err } },
+			{
+				error: {
+					code: "GIST_API_ERROR",
+					message: `GitHub API error: ${response.status}`,
+					details: err,
+				},
+			},
 			response.status as 400,
 		)
 	}
@@ -79,7 +93,9 @@ syncRouter.post("/gist/load", async (c) => {
 	const file = gist.files[FILENAME]
 	if (!file) {
 		return c.json(
-			{ error: { code: "PROGRESS_NOT_FOUND", message: "No MongoQuest progress found in this Gist" } },
+			{
+				error: { code: "PROGRESS_NOT_FOUND", message: "No MongoQuest progress found in this Gist" },
+			},
 			404,
 		)
 	}

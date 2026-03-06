@@ -1,552 +1,677 @@
 [
-  {
-    "name": "Alice Johnson",
-    "email": "alice.johnson@example.com",
-    "phone": "555-1001",
-    "loyaltyTier": "gold",
-    "memberSince": "2020-03-15T00:00:00.000Z",
-    "address": { "street": "100 Oak Avenue", "city": "Springfield", "state": "IL", "zip": "62701" },
-    "tags": ["frequent-buyer", "vip", "online-shopper", "newsletter"],
-    "totalSpent": 4850.00,
-    "isActive": true
-  },
-  {
-    "name": "Bob Smith",
-    "email": "bob.smith@example.com",
-    "phone": "555-1002",
-    "loyaltyTier": "silver",
-    "memberSince": "2021-06-22T00:00:00.000Z",
-    "address": { "street": "45 Elm Street", "city": "Shelbyville", "state": "IL", "zip": "62565" },
-    "tags": ["returning", "in-store", "newsletter"],
-    "totalSpent": 2100.50,
-    "isActive": true
-  },
-  {
-    "name": "Carol Davis",
-    "email": "carol.davis@example.com",
-    "phone": "555-1003",
-    "loyaltyTier": "bronze",
-    "memberSince": "2022-01-10T00:00:00.000Z",
-    "address": { "street": "88 Pine Road", "city": "Springfield", "state": "IL", "zip": "62702" },
-    "tags": ["in-store", "returning"],
-    "totalSpent": 980.25,
-    "isActive": true
-  },
-  {
-    "name": "Frank Wilson",
-    "email": "frank.wilson@example.com",
-    "phone": "555-1004",
-    "loyaltyTier": "bronze",
-    "memberSince": "2022-09-05T00:00:00.000Z",
-    "address": { "street": "12 Birch Lane", "city": "Capital City", "state": "IL", "zip": "62706" },
-    "tags": ["in-store", "returning"],
-    "totalSpent": 720.00,
-    "isActive": true
-  },
-  {
-    "name": "Diana Martinez",
-    "email": "diana.martinez@example.com",
-    "phone": "555-1005",
-    "loyaltyTier": "gold",
-    "memberSince": "2020-07-18T00:00:00.000Z",
-    "address": { "street": "200 Maple Drive", "city": "Ogdenville", "state": "IL", "zip": "62550" },
-    "tags": ["frequent-buyer", "vip", "bulk-buyer", "newsletter"],
-    "totalSpent": 4200.75,
-    "isActive": true
-  },
-  {
-    "name": "Edward Park",
-    "email": "edward.park@example.com",
-    "phone": "555-1006",
-    "loyaltyTier": "gold",
-    "memberSince": "2020-11-02T00:00:00.000Z",
-    "address": { "street": "310 Cedar Court", "city": "Springfield", "state": "IL", "zip": "62703" },
-    "tags": ["frequent-buyer", "vip", "online-shopper"],
-    "totalSpent": 3750.00,
-    "isActive": true
-  },
-  {
-    "name": "Grace Lee",
-    "email": "grace.lee@example.com",
-    "phone": "555-1007",
-    "loyaltyTier": "silver",
-    "memberSince": "2021-02-14T00:00:00.000Z",
-    "address": { "street": "55 Walnut Street", "city": "North Haverbrook", "state": "IL", "zip": "62580" },
-    "tags": ["online-shopper", "returning", "newsletter"],
-    "totalSpent": 1850.30,
-    "isActive": true
-  },
-  {
-    "name": "Henry Nguyen",
-    "email": "henry.nguyen@example.com",
-    "phone": "555-1008",
-    "loyaltyTier": "bronze",
-    "memberSince": "2023-04-20T00:00:00.000Z",
-    "address": { "street": "77 Spruce Way", "city": "Shelbyville", "state": "IL", "zip": "62566" },
-    "tags": ["in-store", "new"],
-    "totalSpent": 650.00,
-    "isActive": true
-  },
-  {
-    "name": "Irene Thompson",
-    "email": "irene.thompson@example.com",
-    "phone": "555-1009",
-    "loyaltyTier": "none",
-    "memberSince": "2024-01-08T00:00:00.000Z",
-    "address": { "street": "33 Ash Boulevard", "city": "Capital City", "state": "IL", "zip": "62707" },
-    "tags": ["new"],
-    "totalSpent": 45.00,
-    "isActive": true
-  },
-  {
-    "name": "James Brown",
-    "email": "james.brown@example.com",
-    "phone": "555-1010",
-    "loyaltyTier": "gold",
-    "memberSince": "2020-05-30T00:00:00.000Z",
-    "address": { "street": "401 Oak Avenue", "city": "Capital City", "state": "IL", "zip": "62708" },
-    "tags": ["frequent-buyer", "vip", "bulk-buyer"],
-    "totalSpent": 4500.00,
-    "isActive": true
-  },
-  {
-    "name": "Karen White",
-    "email": "karen.white@example.com",
-    "phone": "555-1011",
-    "loyaltyTier": "silver",
-    "memberSince": "2021-09-12T00:00:00.000Z",
-    "address": { "street": "62 Elm Street", "city": "Springfield", "state": "IL", "zip": "62701" },
-    "tags": ["online-shopper", "returning", "newsletter"],
-    "totalSpent": 2450.00,
-    "isActive": true
-  },
-  {
-    "name": "Leo Garcia",
-    "email": "leo.garcia@example.com",
-    "phone": "555-1012",
-    "loyaltyTier": "bronze",
-    "memberSince": "2022-06-01T00:00:00.000Z",
-    "address": { "street": "19 Birch Lane", "city": "Ogdenville", "state": "IL", "zip": "62551" },
-    "tags": ["in-store", "returning"],
-    "totalSpent": 890.50,
-    "isActive": true
-  },
-  {
-    "name": "Mia Robinson",
-    "email": "mia.robinson@example.com",
-    "phone": "555-1013",
-    "loyaltyTier": "silver",
-    "memberSince": "2021-04-25T00:00:00.000Z",
-    "address": { "street": "150 Maple Drive", "city": "North Haverbrook", "state": "IL", "zip": "62581" },
-    "tags": ["frequent-buyer", "online-shopper"],
-    "totalSpent": 2800.00,
-    "isActive": true
-  },
-  {
-    "name": "Nathan Clark",
-    "email": "nathan.clark@example.com",
-    "phone": "555-1014",
-    "loyaltyTier": "gold",
-    "memberSince": "2020-01-20T00:00:00.000Z",
-    "address": { "street": "505 Cedar Court", "city": "Shelbyville", "state": "IL", "zip": "62567" },
-    "tags": ["frequent-buyer", "vip", "online-shopper", "newsletter"],
-    "totalSpent": 3200.00,
-    "isActive": true
-  },
-  {
-    "name": "Olivia Taylor",
-    "email": "olivia.taylor@example.com",
-    "phone": "555-1015",
-    "loyaltyTier": "none",
-    "memberSince": "2024-03-15T00:00:00.000Z",
-    "address": { "street": "8 Ash Boulevard", "city": "Springfield", "state": "IL", "zip": "62704" },
-    "tags": ["new", "online-shopper"],
-    "totalSpent": 120.00,
-    "isActive": true
-  },
-  {
-    "name": "Paul Anderson",
-    "email": "paul.anderson@example.com",
-    "phone": "555-1016",
-    "loyaltyTier": "bronze",
-    "memberSince": "2023-02-28T00:00:00.000Z",
-    "address": { "street": "91 Spruce Way", "city": "Capital City", "state": "IL", "zip": "62709" },
-    "tags": ["in-store", "returning"],
-    "totalSpent": 1100.00,
-    "isActive": true
-  },
-  {
-    "name": "Quinn Harper",
-    "email": "quinn.harper@example.com",
-    "phone": "555-1017",
-    "loyaltyTier": "silver",
-    "memberSince": "2021-11-05T00:00:00.000Z",
-    "address": { "street": "230 Walnut Street", "city": "Ogdenville", "state": "IL", "zip": "62552" },
-    "tags": ["online-shopper", "returning", "bulk-buyer"],
-    "totalSpent": 1950.75,
-    "isActive": true
-  },
-  {
-    "name": "Rachel Kim",
-    "email": "rachel.kim@example.com",
-    "phone": "555-1018",
-    "loyaltyTier": "gold",
-    "memberSince": "2020-08-10T00:00:00.000Z",
-    "address": { "street": "175 Oak Avenue", "city": "North Haverbrook", "state": "IL", "zip": "62582" },
-    "tags": ["frequent-buyer", "vip", "in-store", "newsletter"],
-    "totalSpent": 4100.00,
-    "isActive": true
-  },
-  {
-    "name": "Samuel Torres",
-    "email": "samuel.torres@example.com",
-    "phone": "555-1019",
-    "loyaltyTier": "bronze",
-    "memberSince": "2022-12-18T00:00:00.000Z",
-    "address": { "street": "44 Pine Road", "city": "Springfield", "state": "IL", "zip": "62705" },
-    "tags": ["in-store", "new"],
-    "totalSpent": 530.00,
-    "isActive": true
-  },
-  {
-    "name": "Tina Patel",
-    "email": "tina.patel@example.com",
-    "phone": "555-1020",
-    "loyaltyTier": "silver",
-    "memberSince": "2021-07-30T00:00:00.000Z",
-    "address": { "street": "300 Elm Street", "city": "Shelbyville", "state": "IL", "zip": "62568" },
-    "tags": ["frequent-buyer", "online-shopper", "newsletter"],
-    "totalSpent": 2650.00,
-    "isActive": true
-  },
-  {
-    "name": "Victor Hughes",
-    "email": "victor.hughes@example.com",
-    "phone": "555-1021",
-    "loyaltyTier": "none",
-    "memberSince": "2024-05-10T00:00:00.000Z",
-    "address": { "street": "15 Cedar Court", "city": "Capital City", "state": "IL", "zip": "62710" },
-    "tags": ["new"],
-    "totalSpent": 30.00,
-    "isActive": true
-  },
-  {
-    "name": "Wendy Scott",
-    "email": "wendy.scott@example.com",
-    "phone": "555-1022",
-    "loyaltyTier": "gold",
-    "memberSince": "2020-04-02T00:00:00.000Z",
-    "address": { "street": "88 Maple Drive", "city": "Springfield", "state": "IL", "zip": "62701" },
-    "tags": ["frequent-buyer", "vip", "bulk-buyer", "newsletter"],
-    "totalSpent": 4650.00,
-    "isActive": true
-  },
-  {
-    "name": "Xavier Reed",
-    "email": "xavier.reed@example.com",
-    "phone": "555-1023",
-    "loyaltyTier": "silver",
-    "memberSince": "2022-03-17T00:00:00.000Z",
-    "address": { "street": "67 Birch Lane", "city": "Ogdenville", "state": "IL", "zip": "62553" },
-    "tags": ["online-shopper", "returning"],
-    "totalSpent": 1750.00,
-    "isActive": true
-  },
-  {
-    "name": "Yuki Tanaka",
-    "email": "yuki.tanaka@example.com",
-    "phone": "555-1024",
-    "loyaltyTier": "bronze",
-    "memberSince": "2023-08-22T00:00:00.000Z",
-    "address": { "street": "102 Spruce Way", "city": "North Haverbrook", "state": "IL", "zip": "62583" },
-    "tags": ["in-store", "new"],
-    "totalSpent": 620.00,
-    "isActive": true
-  },
-  {
-    "name": "Zoe Mitchell",
-    "email": "zoe.mitchell@example.com",
-    "phone": "555-1025",
-    "loyaltyTier": "silver",
-    "memberSince": "2021-01-09T00:00:00.000Z",
-    "address": { "street": "410 Walnut Street", "city": "Shelbyville", "state": "IL", "zip": "62569" },
-    "tags": ["frequent-buyer", "online-shopper", "newsletter"],
-    "totalSpent": 2300.00,
-    "isActive": true
-  },
-  {
-    "name": "Aaron Foster",
-    "email": "aaron.foster@example.com",
-    "phone": "555-1026",
-    "loyaltyTier": "none",
-    "memberSince": "2024-02-20T00:00:00.000Z",
-    "address": { "street": "5 Ash Boulevard", "city": "Springfield", "state": "IL", "zip": "62706" },
-    "tags": ["new", "in-store"],
-    "totalSpent": 85.00,
-    "isActive": true
-  },
-  {
-    "name": "Brenda Collins",
-    "email": "brenda.collins@example.com",
-    "phone": "555-1027",
-    "loyaltyTier": "gold",
-    "memberSince": "2020-06-14T00:00:00.000Z",
-    "address": { "street": "520 Oak Avenue", "city": "Capital City", "state": "IL", "zip": "62711" },
-    "tags": ["frequent-buyer", "vip", "online-shopper"],
-    "totalSpent": 3900.00,
-    "isActive": true
-  },
-  {
-    "name": "Carlos Mendez",
-    "email": "carlos.mendez@example.com",
-    "phone": "555-1028",
-    "loyaltyTier": "bronze",
-    "memberSince": "2022-07-11T00:00:00.000Z",
-    "address": { "street": "38 Pine Road", "city": "Shelbyville", "state": "IL", "zip": "62570" },
-    "tags": ["in-store", "returning"],
-    "totalSpent": 1050.00,
-    "isActive": true
-  },
-  {
-    "name": "Donna Evans",
-    "email": "donna.evans@example.com",
-    "phone": "555-1029",
-    "loyaltyTier": "silver",
-    "memberSince": "2021-10-03T00:00:00.000Z",
-    "address": { "street": "180 Elm Street", "city": "Ogdenville", "state": "IL", "zip": "62554" },
-    "tags": ["online-shopper", "returning", "newsletter"],
-    "totalSpent": 1600.00,
-    "isActive": true
-  },
-  {
-    "name": "Ethan Brooks",
-    "email": "ethan.brooks@example.com",
-    "phone": "555-1030",
-    "loyaltyTier": "gold",
-    "memberSince": "2020-09-25T00:00:00.000Z",
-    "address": { "street": "250 Cedar Court", "city": "North Haverbrook", "state": "IL", "zip": "62584" },
-    "tags": ["frequent-buyer", "vip", "bulk-buyer"],
-    "totalSpent": 2950.00,
-    "isActive": true
-  },
-  {
-    "name": "Fiona Grant",
-    "email": "fiona.grant@example.com",
-    "phone": "555-1031",
-    "loyaltyTier": "bronze",
-    "memberSince": "2023-05-14T00:00:00.000Z",
-    "address": { "street": "71 Maple Drive", "city": "Springfield", "state": "IL", "zip": "62702" },
-    "tags": ["in-store", "new"],
-    "totalSpent": 780.00,
-    "isActive": true
-  },
-  {
-    "name": "George Harris",
-    "email": "george.harris@example.com",
-    "phone": "555-1032",
-    "loyaltyTier": "silver",
-    "memberSince": "2022-01-28T00:00:00.000Z",
-    "address": { "street": "95 Birch Lane", "city": "Capital City", "state": "IL", "zip": "62712" },
-    "tags": ["online-shopper", "returning"],
-    "totalSpent": 1400.00,
-    "isActive": true
-  },
-  {
-    "name": "Hannah Murphy",
-    "email": "hannah.murphy@example.com",
-    "phone": "555-1033",
-    "loyaltyTier": "none",
-    "memberSince": "2024-04-01T00:00:00.000Z",
-    "address": { "street": "22 Spruce Way", "city": "Shelbyville", "state": "IL", "zip": "62571" },
-    "tags": ["new"],
-    "totalSpent": 60.00,
-    "isActive": true
-  },
-  {
-    "name": "Ivan Petrov",
-    "email": "ivan.petrov@example.com",
-    "phone": "555-1034",
-    "loyaltyTier": "silver",
-    "memberSince": "2021-05-16T00:00:00.000Z",
-    "address": { "street": "340 Walnut Street", "city": "Springfield", "state": "IL", "zip": "62703" },
-    "tags": ["frequent-buyer", "in-store", "newsletter"],
-    "totalSpent": 2200.00,
-    "isActive": true
-  },
-  {
-    "name": "Julia Sanders",
-    "email": "julia.sanders@example.com",
-    "phone": "555-1035",
-    "loyaltyTier": "bronze",
-    "memberSince": "2023-03-09T00:00:00.000Z",
-    "address": { "street": "56 Ash Boulevard", "city": "Ogdenville", "state": "IL", "zip": "62555" },
-    "tags": ["online-shopper", "new"],
-    "totalSpent": 920.00,
-    "isActive": true
-  },
-  {
-    "name": "Kevin O'Brien",
-    "email": "kevin.obrien@example.com",
-    "phone": "555-1036",
-    "loyaltyTier": "none",
-    "memberSince": "2024-06-12T00:00:00.000Z",
-    "address": { "street": "3 Oak Avenue", "city": "North Haverbrook", "state": "IL", "zip": "62585" },
-    "tags": ["new", "online-shopper"],
-    "totalSpent": 150.00,
-    "isActive": true
-  },
-  {
-    "name": "Laura Bennett",
-    "email": "laura.bennett@example.com",
-    "phone": "555-1037",
-    "loyaltyTier": "silver",
-    "memberSince": "2021-08-20T00:00:00.000Z",
-    "address": { "street": "415 Elm Street", "city": "Capital City", "state": "IL", "zip": "62713" },
-    "tags": ["frequent-buyer", "online-shopper", "returning"],
-    "totalSpent": 2550.00,
-    "isActive": true
-  },
-  {
-    "name": "Marcus Young",
-    "email": "marcus.young@example.com",
-    "phone": "555-1038",
-    "loyaltyTier": "bronze",
-    "memberSince": "2022-10-30T00:00:00.000Z",
-    "address": { "street": "130 Pine Road", "city": "Shelbyville", "state": "IL", "zip": "62572" },
-    "tags": ["in-store", "returning"],
-    "totalSpent": 1350.00,
-    "isActive": true
-  },
-  {
-    "name": "Nina Kowalski",
-    "email": "nina.kowalski@example.com",
-    "phone": "555-1039",
-    "loyaltyTier": "none",
-    "memberSince": "2024-01-25T00:00:00.000Z",
-    "address": { "street": "48 Cedar Court", "city": "Springfield", "state": "IL", "zip": "62704" },
-    "tags": ["new"],
-    "totalSpent": 200.00,
-    "isActive": true
-  },
-  {
-    "name": "Oscar Ruiz",
-    "email": "oscar.ruiz@example.com",
-    "phone": "555-1040",
-    "loyaltyTier": "silver",
-    "memberSince": "2022-05-08T00:00:00.000Z",
-    "address": { "street": "275 Maple Drive", "city": "Ogdenville", "state": "IL", "zip": "62556" },
-    "tags": ["online-shopper", "returning", "newsletter"],
-    "totalSpent": 1200.00,
-    "isActive": true
-  },
-  {
-    "name": "Patricia Long",
-    "email": "patricia.long@example.com",
-    "phone": "555-1041",
-    "loyaltyTier": "gold",
-    "memberSince": "2020-02-11T00:00:00.000Z",
-    "address": { "street": "600 Birch Lane", "city": "Capital City", "state": "IL", "zip": "62714" },
-    "tags": ["frequent-buyer", "vip", "in-store", "bulk-buyer"],
-    "totalSpent": 4300.00,
-    "isActive": false
-  },
-  {
-    "name": "Derek Watson",
-    "email": "derek.watson@example.com",
-    "phone": "555-1042",
-    "loyaltyTier": "silver",
-    "memberSince": "2021-12-04T00:00:00.000Z",
-    "address": { "street": "160 Spruce Way", "city": "Springfield", "state": "IL", "zip": "62705" },
-    "tags": ["online-shopper", "returning"],
-    "totalSpent": 1550.00,
-    "isActive": false
-  },
-  {
-    "name": "Simone Dubois",
-    "email": "simone.dubois@example.com",
-    "phone": "555-1043",
-    "loyaltyTier": "bronze",
-    "memberSince": "2023-01-15T00:00:00.000Z",
-    "address": { "street": "82 Walnut Street", "city": "Shelbyville", "state": "IL", "zip": "62573" },
-    "tags": ["in-store"],
-    "totalSpent": 510.00,
-    "isActive": false
-  },
-  {
-    "name": "Tom Richards",
-    "email": "tom.richards@example.com",
-    "phone": "555-1044",
-    "loyaltyTier": "none",
-    "memberSince": "2023-11-20T00:00:00.000Z",
-    "address": { "street": "10 Ash Boulevard", "city": "North Haverbrook", "state": "IL", "zip": "62586" },
-    "tags": ["new"],
-    "totalSpent": 25.00,
-    "isActive": false
-  },
-  {
-    "name": "Uma Krishnan",
-    "email": "uma.krishnan@example.com",
-    "phone": "555-1045",
-    "loyaltyTier": "silver",
-    "memberSince": "2021-03-30T00:00:00.000Z",
-    "address": { "street": "350 Oak Avenue", "city": "Ogdenville", "state": "IL", "zip": "62557" },
-    "tags": ["online-shopper", "returning", "newsletter"],
-    "totalSpent": 3100.00,
-    "isActive": false
-  },
-  {
-    "name": "Wallace Freeman",
-    "email": "wallace.freeman@example.com",
-    "phone": "555-1046",
-    "loyaltyTier": "bronze",
-    "memberSince": "2022-08-14T00:00:00.000Z",
-    "address": { "street": "205 Elm Street", "city": "Capital City", "state": "IL", "zip": "62715" },
-    "tags": ["in-store"],
-    "totalSpent": 680.00,
-    "isActive": false
-  },
-  {
-    "name": "Xena Papadopoulos",
-    "email": "xena.papadopoulos@example.com",
-    "phone": "555-1047",
-    "loyaltyTier": "none",
-    "memberSince": "2024-02-05T00:00:00.000Z",
-    "address": { "street": "29 Pine Road", "city": "Springfield", "state": "IL", "zip": "62706" },
-    "tags": ["new", "online-shopper"],
-    "totalSpent": 310.00,
-    "isActive": false
-  },
-  {
-    "name": "Yosef Abadi",
-    "email": "yosef.abadi@example.com",
-    "phone": "555-1048",
-    "loyaltyTier": "bronze",
-    "memberSince": "2023-06-28T00:00:00.000Z",
-    "address": { "street": "140 Cedar Court", "city": "Shelbyville", "state": "IL", "zip": "62574" },
-    "tags": ["in-store", "returning"],
-    "totalSpent": 1480.00,
-    "isActive": false
-  },
-  {
-    "name": "Vera Chang",
-    "email": "vera.chang@example.com",
-    "phone": "555-1049",
-    "loyaltyTier": "silver",
-    "memberSince": "2022-04-12T00:00:00.000Z",
-    "address": { "street": "190 Maple Drive", "city": "North Haverbrook", "state": "IL", "zip": "62587" },
-    "tags": ["online-shopper", "returning", "bulk-buyer"],
-    "totalSpent": 3200.00,
-    "isActive": false
-  },
-  {
-    "name": "Russell Blake",
-    "email": "russell.blake@example.com",
-    "phone": "555-1050",
-    "loyaltyTier": "none",
-    "memberSince": "2023-10-08T00:00:00.000Z",
-    "address": { "street": "60 Spruce Way", "city": "Ogdenville", "state": "IL", "zip": "62558" },
-    "tags": ["new"],
-    "totalSpent": 475.00,
-    "isActive": false
-  }
+	{
+		"name": "Alice Johnson",
+		"email": "alice.johnson@example.com",
+		"phone": "555-1001",
+		"loyaltyTier": "gold",
+		"memberSince": "2020-03-15T00:00:00.000Z",
+		"address": { "street": "100 Oak Avenue", "city": "Springfield", "state": "IL", "zip": "62701" },
+		"tags": ["frequent-buyer", "vip", "online-shopper", "newsletter"],
+		"totalSpent": 4850.0,
+		"isActive": true
+	},
+	{
+		"name": "Bob Smith",
+		"email": "bob.smith@example.com",
+		"phone": "555-1002",
+		"loyaltyTier": "silver",
+		"memberSince": "2021-06-22T00:00:00.000Z",
+		"address": { "street": "45 Elm Street", "city": "Shelbyville", "state": "IL", "zip": "62565" },
+		"tags": ["returning", "in-store", "newsletter"],
+		"totalSpent": 2100.5,
+		"isActive": true
+	},
+	{
+		"name": "Carol Davis",
+		"email": "carol.davis@example.com",
+		"phone": "555-1003",
+		"loyaltyTier": "bronze",
+		"memberSince": "2022-01-10T00:00:00.000Z",
+		"address": { "street": "88 Pine Road", "city": "Springfield", "state": "IL", "zip": "62702" },
+		"tags": ["in-store", "returning"],
+		"totalSpent": 980.25,
+		"isActive": true
+	},
+	{
+		"name": "Frank Wilson",
+		"email": "frank.wilson@example.com",
+		"phone": "555-1004",
+		"loyaltyTier": "bronze",
+		"memberSince": "2022-09-05T00:00:00.000Z",
+		"address": { "street": "12 Birch Lane", "city": "Capital City", "state": "IL", "zip": "62706" },
+		"tags": ["in-store", "returning"],
+		"totalSpent": 720.0,
+		"isActive": true
+	},
+	{
+		"name": "Diana Martinez",
+		"email": "diana.martinez@example.com",
+		"phone": "555-1005",
+		"loyaltyTier": "gold",
+		"memberSince": "2020-07-18T00:00:00.000Z",
+		"address": { "street": "200 Maple Drive", "city": "Ogdenville", "state": "IL", "zip": "62550" },
+		"tags": ["frequent-buyer", "vip", "bulk-buyer", "newsletter"],
+		"totalSpent": 4200.75,
+		"isActive": true
+	},
+	{
+		"name": "Edward Park",
+		"email": "edward.park@example.com",
+		"phone": "555-1006",
+		"loyaltyTier": "gold",
+		"memberSince": "2020-11-02T00:00:00.000Z",
+		"address": {
+			"street": "310 Cedar Court",
+			"city": "Springfield",
+			"state": "IL",
+			"zip": "62703"
+		},
+		"tags": ["frequent-buyer", "vip", "online-shopper"],
+		"totalSpent": 3750.0,
+		"isActive": true
+	},
+	{
+		"name": "Grace Lee",
+		"email": "grace.lee@example.com",
+		"phone": "555-1007",
+		"loyaltyTier": "silver",
+		"memberSince": "2021-02-14T00:00:00.000Z",
+		"address": {
+			"street": "55 Walnut Street",
+			"city": "North Haverbrook",
+			"state": "IL",
+			"zip": "62580"
+		},
+		"tags": ["online-shopper", "returning", "newsletter"],
+		"totalSpent": 1850.3,
+		"isActive": true
+	},
+	{
+		"name": "Henry Nguyen",
+		"email": "henry.nguyen@example.com",
+		"phone": "555-1008",
+		"loyaltyTier": "bronze",
+		"memberSince": "2023-04-20T00:00:00.000Z",
+		"address": { "street": "77 Spruce Way", "city": "Shelbyville", "state": "IL", "zip": "62566" },
+		"tags": ["in-store", "new"],
+		"totalSpent": 650.0,
+		"isActive": true
+	},
+	{
+		"name": "Irene Thompson",
+		"email": "irene.thompson@example.com",
+		"phone": "555-1009",
+		"loyaltyTier": "none",
+		"memberSince": "2024-01-08T00:00:00.000Z",
+		"address": {
+			"street": "33 Ash Boulevard",
+			"city": "Capital City",
+			"state": "IL",
+			"zip": "62707"
+		},
+		"tags": ["new"],
+		"totalSpent": 45.0,
+		"isActive": true
+	},
+	{
+		"name": "James Brown",
+		"email": "james.brown@example.com",
+		"phone": "555-1010",
+		"loyaltyTier": "gold",
+		"memberSince": "2020-05-30T00:00:00.000Z",
+		"address": {
+			"street": "401 Oak Avenue",
+			"city": "Capital City",
+			"state": "IL",
+			"zip": "62708"
+		},
+		"tags": ["frequent-buyer", "vip", "bulk-buyer"],
+		"totalSpent": 4500.0,
+		"isActive": true
+	},
+	{
+		"name": "Karen White",
+		"email": "karen.white@example.com",
+		"phone": "555-1011",
+		"loyaltyTier": "silver",
+		"memberSince": "2021-09-12T00:00:00.000Z",
+		"address": { "street": "62 Elm Street", "city": "Springfield", "state": "IL", "zip": "62701" },
+		"tags": ["online-shopper", "returning", "newsletter"],
+		"totalSpent": 2450.0,
+		"isActive": true
+	},
+	{
+		"name": "Leo Garcia",
+		"email": "leo.garcia@example.com",
+		"phone": "555-1012",
+		"loyaltyTier": "bronze",
+		"memberSince": "2022-06-01T00:00:00.000Z",
+		"address": { "street": "19 Birch Lane", "city": "Ogdenville", "state": "IL", "zip": "62551" },
+		"tags": ["in-store", "returning"],
+		"totalSpent": 890.5,
+		"isActive": true
+	},
+	{
+		"name": "Mia Robinson",
+		"email": "mia.robinson@example.com",
+		"phone": "555-1013",
+		"loyaltyTier": "silver",
+		"memberSince": "2021-04-25T00:00:00.000Z",
+		"address": {
+			"street": "150 Maple Drive",
+			"city": "North Haverbrook",
+			"state": "IL",
+			"zip": "62581"
+		},
+		"tags": ["frequent-buyer", "online-shopper"],
+		"totalSpent": 2800.0,
+		"isActive": true
+	},
+	{
+		"name": "Nathan Clark",
+		"email": "nathan.clark@example.com",
+		"phone": "555-1014",
+		"loyaltyTier": "gold",
+		"memberSince": "2020-01-20T00:00:00.000Z",
+		"address": {
+			"street": "505 Cedar Court",
+			"city": "Shelbyville",
+			"state": "IL",
+			"zip": "62567"
+		},
+		"tags": ["frequent-buyer", "vip", "online-shopper", "newsletter"],
+		"totalSpent": 3200.0,
+		"isActive": true
+	},
+	{
+		"name": "Olivia Taylor",
+		"email": "olivia.taylor@example.com",
+		"phone": "555-1015",
+		"loyaltyTier": "none",
+		"memberSince": "2024-03-15T00:00:00.000Z",
+		"address": {
+			"street": "8 Ash Boulevard",
+			"city": "Springfield",
+			"state": "IL",
+			"zip": "62704"
+		},
+		"tags": ["new", "online-shopper"],
+		"totalSpent": 120.0,
+		"isActive": true
+	},
+	{
+		"name": "Paul Anderson",
+		"email": "paul.anderson@example.com",
+		"phone": "555-1016",
+		"loyaltyTier": "bronze",
+		"memberSince": "2023-02-28T00:00:00.000Z",
+		"address": { "street": "91 Spruce Way", "city": "Capital City", "state": "IL", "zip": "62709" },
+		"tags": ["in-store", "returning"],
+		"totalSpent": 1100.0,
+		"isActive": true
+	},
+	{
+		"name": "Quinn Harper",
+		"email": "quinn.harper@example.com",
+		"phone": "555-1017",
+		"loyaltyTier": "silver",
+		"memberSince": "2021-11-05T00:00:00.000Z",
+		"address": {
+			"street": "230 Walnut Street",
+			"city": "Ogdenville",
+			"state": "IL",
+			"zip": "62552"
+		},
+		"tags": ["online-shopper", "returning", "bulk-buyer"],
+		"totalSpent": 1950.75,
+		"isActive": true
+	},
+	{
+		"name": "Rachel Kim",
+		"email": "rachel.kim@example.com",
+		"phone": "555-1018",
+		"loyaltyTier": "gold",
+		"memberSince": "2020-08-10T00:00:00.000Z",
+		"address": {
+			"street": "175 Oak Avenue",
+			"city": "North Haverbrook",
+			"state": "IL",
+			"zip": "62582"
+		},
+		"tags": ["frequent-buyer", "vip", "in-store", "newsletter"],
+		"totalSpent": 4100.0,
+		"isActive": true
+	},
+	{
+		"name": "Samuel Torres",
+		"email": "samuel.torres@example.com",
+		"phone": "555-1019",
+		"loyaltyTier": "bronze",
+		"memberSince": "2022-12-18T00:00:00.000Z",
+		"address": { "street": "44 Pine Road", "city": "Springfield", "state": "IL", "zip": "62705" },
+		"tags": ["in-store", "new"],
+		"totalSpent": 530.0,
+		"isActive": true
+	},
+	{
+		"name": "Tina Patel",
+		"email": "tina.patel@example.com",
+		"phone": "555-1020",
+		"loyaltyTier": "silver",
+		"memberSince": "2021-07-30T00:00:00.000Z",
+		"address": { "street": "300 Elm Street", "city": "Shelbyville", "state": "IL", "zip": "62568" },
+		"tags": ["frequent-buyer", "online-shopper", "newsletter"],
+		"totalSpent": 2650.0,
+		"isActive": true
+	},
+	{
+		"name": "Victor Hughes",
+		"email": "victor.hughes@example.com",
+		"phone": "555-1021",
+		"loyaltyTier": "none",
+		"memberSince": "2024-05-10T00:00:00.000Z",
+		"address": {
+			"street": "15 Cedar Court",
+			"city": "Capital City",
+			"state": "IL",
+			"zip": "62710"
+		},
+		"tags": ["new"],
+		"totalSpent": 30.0,
+		"isActive": true
+	},
+	{
+		"name": "Wendy Scott",
+		"email": "wendy.scott@example.com",
+		"phone": "555-1022",
+		"loyaltyTier": "gold",
+		"memberSince": "2020-04-02T00:00:00.000Z",
+		"address": { "street": "88 Maple Drive", "city": "Springfield", "state": "IL", "zip": "62701" },
+		"tags": ["frequent-buyer", "vip", "bulk-buyer", "newsletter"],
+		"totalSpent": 4650.0,
+		"isActive": true
+	},
+	{
+		"name": "Xavier Reed",
+		"email": "xavier.reed@example.com",
+		"phone": "555-1023",
+		"loyaltyTier": "silver",
+		"memberSince": "2022-03-17T00:00:00.000Z",
+		"address": { "street": "67 Birch Lane", "city": "Ogdenville", "state": "IL", "zip": "62553" },
+		"tags": ["online-shopper", "returning"],
+		"totalSpent": 1750.0,
+		"isActive": true
+	},
+	{
+		"name": "Yuki Tanaka",
+		"email": "yuki.tanaka@example.com",
+		"phone": "555-1024",
+		"loyaltyTier": "bronze",
+		"memberSince": "2023-08-22T00:00:00.000Z",
+		"address": {
+			"street": "102 Spruce Way",
+			"city": "North Haverbrook",
+			"state": "IL",
+			"zip": "62583"
+		},
+		"tags": ["in-store", "new"],
+		"totalSpent": 620.0,
+		"isActive": true
+	},
+	{
+		"name": "Zoe Mitchell",
+		"email": "zoe.mitchell@example.com",
+		"phone": "555-1025",
+		"loyaltyTier": "silver",
+		"memberSince": "2021-01-09T00:00:00.000Z",
+		"address": {
+			"street": "410 Walnut Street",
+			"city": "Shelbyville",
+			"state": "IL",
+			"zip": "62569"
+		},
+		"tags": ["frequent-buyer", "online-shopper", "newsletter"],
+		"totalSpent": 2300.0,
+		"isActive": true
+	},
+	{
+		"name": "Aaron Foster",
+		"email": "aaron.foster@example.com",
+		"phone": "555-1026",
+		"loyaltyTier": "none",
+		"memberSince": "2024-02-20T00:00:00.000Z",
+		"address": {
+			"street": "5 Ash Boulevard",
+			"city": "Springfield",
+			"state": "IL",
+			"zip": "62706"
+		},
+		"tags": ["new", "in-store"],
+		"totalSpent": 85.0,
+		"isActive": true
+	},
+	{
+		"name": "Brenda Collins",
+		"email": "brenda.collins@example.com",
+		"phone": "555-1027",
+		"loyaltyTier": "gold",
+		"memberSince": "2020-06-14T00:00:00.000Z",
+		"address": {
+			"street": "520 Oak Avenue",
+			"city": "Capital City",
+			"state": "IL",
+			"zip": "62711"
+		},
+		"tags": ["frequent-buyer", "vip", "online-shopper"],
+		"totalSpent": 3900.0,
+		"isActive": true
+	},
+	{
+		"name": "Carlos Mendez",
+		"email": "carlos.mendez@example.com",
+		"phone": "555-1028",
+		"loyaltyTier": "bronze",
+		"memberSince": "2022-07-11T00:00:00.000Z",
+		"address": { "street": "38 Pine Road", "city": "Shelbyville", "state": "IL", "zip": "62570" },
+		"tags": ["in-store", "returning"],
+		"totalSpent": 1050.0,
+		"isActive": true
+	},
+	{
+		"name": "Donna Evans",
+		"email": "donna.evans@example.com",
+		"phone": "555-1029",
+		"loyaltyTier": "silver",
+		"memberSince": "2021-10-03T00:00:00.000Z",
+		"address": { "street": "180 Elm Street", "city": "Ogdenville", "state": "IL", "zip": "62554" },
+		"tags": ["online-shopper", "returning", "newsletter"],
+		"totalSpent": 1600.0,
+		"isActive": true
+	},
+	{
+		"name": "Ethan Brooks",
+		"email": "ethan.brooks@example.com",
+		"phone": "555-1030",
+		"loyaltyTier": "gold",
+		"memberSince": "2020-09-25T00:00:00.000Z",
+		"address": {
+			"street": "250 Cedar Court",
+			"city": "North Haverbrook",
+			"state": "IL",
+			"zip": "62584"
+		},
+		"tags": ["frequent-buyer", "vip", "bulk-buyer"],
+		"totalSpent": 2950.0,
+		"isActive": true
+	},
+	{
+		"name": "Fiona Grant",
+		"email": "fiona.grant@example.com",
+		"phone": "555-1031",
+		"loyaltyTier": "bronze",
+		"memberSince": "2023-05-14T00:00:00.000Z",
+		"address": { "street": "71 Maple Drive", "city": "Springfield", "state": "IL", "zip": "62702" },
+		"tags": ["in-store", "new"],
+		"totalSpent": 780.0,
+		"isActive": true
+	},
+	{
+		"name": "George Harris",
+		"email": "george.harris@example.com",
+		"phone": "555-1032",
+		"loyaltyTier": "silver",
+		"memberSince": "2022-01-28T00:00:00.000Z",
+		"address": { "street": "95 Birch Lane", "city": "Capital City", "state": "IL", "zip": "62712" },
+		"tags": ["online-shopper", "returning"],
+		"totalSpent": 1400.0,
+		"isActive": true
+	},
+	{
+		"name": "Hannah Murphy",
+		"email": "hannah.murphy@example.com",
+		"phone": "555-1033",
+		"loyaltyTier": "none",
+		"memberSince": "2024-04-01T00:00:00.000Z",
+		"address": { "street": "22 Spruce Way", "city": "Shelbyville", "state": "IL", "zip": "62571" },
+		"tags": ["new"],
+		"totalSpent": 60.0,
+		"isActive": true
+	},
+	{
+		"name": "Ivan Petrov",
+		"email": "ivan.petrov@example.com",
+		"phone": "555-1034",
+		"loyaltyTier": "silver",
+		"memberSince": "2021-05-16T00:00:00.000Z",
+		"address": {
+			"street": "340 Walnut Street",
+			"city": "Springfield",
+			"state": "IL",
+			"zip": "62703"
+		},
+		"tags": ["frequent-buyer", "in-store", "newsletter"],
+		"totalSpent": 2200.0,
+		"isActive": true
+	},
+	{
+		"name": "Julia Sanders",
+		"email": "julia.sanders@example.com",
+		"phone": "555-1035",
+		"loyaltyTier": "bronze",
+		"memberSince": "2023-03-09T00:00:00.000Z",
+		"address": {
+			"street": "56 Ash Boulevard",
+			"city": "Ogdenville",
+			"state": "IL",
+			"zip": "62555"
+		},
+		"tags": ["online-shopper", "new"],
+		"totalSpent": 920.0,
+		"isActive": true
+	},
+	{
+		"name": "Kevin O'Brien",
+		"email": "kevin.obrien@example.com",
+		"phone": "555-1036",
+		"loyaltyTier": "none",
+		"memberSince": "2024-06-12T00:00:00.000Z",
+		"address": {
+			"street": "3 Oak Avenue",
+			"city": "North Haverbrook",
+			"state": "IL",
+			"zip": "62585"
+		},
+		"tags": ["new", "online-shopper"],
+		"totalSpent": 150.0,
+		"isActive": true
+	},
+	{
+		"name": "Laura Bennett",
+		"email": "laura.bennett@example.com",
+		"phone": "555-1037",
+		"loyaltyTier": "silver",
+		"memberSince": "2021-08-20T00:00:00.000Z",
+		"address": {
+			"street": "415 Elm Street",
+			"city": "Capital City",
+			"state": "IL",
+			"zip": "62713"
+		},
+		"tags": ["frequent-buyer", "online-shopper", "returning"],
+		"totalSpent": 2550.0,
+		"isActive": true
+	},
+	{
+		"name": "Marcus Young",
+		"email": "marcus.young@example.com",
+		"phone": "555-1038",
+		"loyaltyTier": "bronze",
+		"memberSince": "2022-10-30T00:00:00.000Z",
+		"address": { "street": "130 Pine Road", "city": "Shelbyville", "state": "IL", "zip": "62572" },
+		"tags": ["in-store", "returning"],
+		"totalSpent": 1350.0,
+		"isActive": true
+	},
+	{
+		"name": "Nina Kowalski",
+		"email": "nina.kowalski@example.com",
+		"phone": "555-1039",
+		"loyaltyTier": "none",
+		"memberSince": "2024-01-25T00:00:00.000Z",
+		"address": { "street": "48 Cedar Court", "city": "Springfield", "state": "IL", "zip": "62704" },
+		"tags": ["new"],
+		"totalSpent": 200.0,
+		"isActive": true
+	},
+	{
+		"name": "Oscar Ruiz",
+		"email": "oscar.ruiz@example.com",
+		"phone": "555-1040",
+		"loyaltyTier": "silver",
+		"memberSince": "2022-05-08T00:00:00.000Z",
+		"address": { "street": "275 Maple Drive", "city": "Ogdenville", "state": "IL", "zip": "62556" },
+		"tags": ["online-shopper", "returning", "newsletter"],
+		"totalSpent": 1200.0,
+		"isActive": true
+	},
+	{
+		"name": "Patricia Long",
+		"email": "patricia.long@example.com",
+		"phone": "555-1041",
+		"loyaltyTier": "gold",
+		"memberSince": "2020-02-11T00:00:00.000Z",
+		"address": {
+			"street": "600 Birch Lane",
+			"city": "Capital City",
+			"state": "IL",
+			"zip": "62714"
+		},
+		"tags": ["frequent-buyer", "vip", "in-store", "bulk-buyer"],
+		"totalSpent": 4300.0,
+		"isActive": false
+	},
+	{
+		"name": "Derek Watson",
+		"email": "derek.watson@example.com",
+		"phone": "555-1042",
+		"loyaltyTier": "silver",
+		"memberSince": "2021-12-04T00:00:00.000Z",
+		"address": { "street": "160 Spruce Way", "city": "Springfield", "state": "IL", "zip": "62705" },
+		"tags": ["online-shopper", "returning"],
+		"totalSpent": 1550.0,
+		"isActive": false
+	},
+	{
+		"name": "Simone Dubois",
+		"email": "simone.dubois@example.com",
+		"phone": "555-1043",
+		"loyaltyTier": "bronze",
+		"memberSince": "2023-01-15T00:00:00.000Z",
+		"address": {
+			"street": "82 Walnut Street",
+			"city": "Shelbyville",
+			"state": "IL",
+			"zip": "62573"
+		},
+		"tags": ["in-store"],
+		"totalSpent": 510.0,
+		"isActive": false
+	},
+	{
+		"name": "Tom Richards",
+		"email": "tom.richards@example.com",
+		"phone": "555-1044",
+		"loyaltyTier": "none",
+		"memberSince": "2023-11-20T00:00:00.000Z",
+		"address": {
+			"street": "10 Ash Boulevard",
+			"city": "North Haverbrook",
+			"state": "IL",
+			"zip": "62586"
+		},
+		"tags": ["new"],
+		"totalSpent": 25.0,
+		"isActive": false
+	},
+	{
+		"name": "Uma Krishnan",
+		"email": "uma.krishnan@example.com",
+		"phone": "555-1045",
+		"loyaltyTier": "silver",
+		"memberSince": "2021-03-30T00:00:00.000Z",
+		"address": { "street": "350 Oak Avenue", "city": "Ogdenville", "state": "IL", "zip": "62557" },
+		"tags": ["online-shopper", "returning", "newsletter"],
+		"totalSpent": 3100.0,
+		"isActive": false
+	},
+	{
+		"name": "Wallace Freeman",
+		"email": "wallace.freeman@example.com",
+		"phone": "555-1046",
+		"loyaltyTier": "bronze",
+		"memberSince": "2022-08-14T00:00:00.000Z",
+		"address": {
+			"street": "205 Elm Street",
+			"city": "Capital City",
+			"state": "IL",
+			"zip": "62715"
+		},
+		"tags": ["in-store"],
+		"totalSpent": 680.0,
+		"isActive": false
+	},
+	{
+		"name": "Xena Papadopoulos",
+		"email": "xena.papadopoulos@example.com",
+		"phone": "555-1047",
+		"loyaltyTier": "none",
+		"memberSince": "2024-02-05T00:00:00.000Z",
+		"address": { "street": "29 Pine Road", "city": "Springfield", "state": "IL", "zip": "62706" },
+		"tags": ["new", "online-shopper"],
+		"totalSpent": 310.0,
+		"isActive": false
+	},
+	{
+		"name": "Yosef Abadi",
+		"email": "yosef.abadi@example.com",
+		"phone": "555-1048",
+		"loyaltyTier": "bronze",
+		"memberSince": "2023-06-28T00:00:00.000Z",
+		"address": {
+			"street": "140 Cedar Court",
+			"city": "Shelbyville",
+			"state": "IL",
+			"zip": "62574"
+		},
+		"tags": ["in-store", "returning"],
+		"totalSpent": 1480.0,
+		"isActive": false
+	},
+	{
+		"name": "Vera Chang",
+		"email": "vera.chang@example.com",
+		"phone": "555-1049",
+		"loyaltyTier": "silver",
+		"memberSince": "2022-04-12T00:00:00.000Z",
+		"address": {
+			"street": "190 Maple Drive",
+			"city": "North Haverbrook",
+			"state": "IL",
+			"zip": "62587"
+		},
+		"tags": ["online-shopper", "returning", "bulk-buyer"],
+		"totalSpent": 3200.0,
+		"isActive": false
+	},
+	{
+		"name": "Russell Blake",
+		"email": "russell.blake@example.com",
+		"phone": "555-1050",
+		"loyaltyTier": "none",
+		"memberSince": "2023-10-08T00:00:00.000Z",
+		"address": { "street": "60 Spruce Way", "city": "Ogdenville", "state": "IL", "zip": "62558" },
+		"tags": ["new"],
+		"totalSpent": 475.0,
+		"isActive": false
+	}
 ]

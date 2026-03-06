@@ -1,2 +1,2 @@
-export { compareResults, type CompareOptions, type ValidationResult } from "./output-match"
 export { runDocumentChecks } from "./document-check"
+export { type CompareOptions, compareResults, type ValidationResult } from "./output-match"

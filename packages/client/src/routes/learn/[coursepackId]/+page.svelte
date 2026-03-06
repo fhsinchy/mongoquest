@@ -1,90 +1,90 @@
 <script lang="ts">
-	import { page } from "$app/state"
-	import { api } from "$lib/api"
-	import type { CoursepackDetail } from "$lib/api"
-	import { getContext } from "svelte"
-	import type { ProgressState } from "$lib/stores/progress.svelte"
-	import ProgressBar from "$lib/components/ProgressBar.svelte"
+import { getContext } from "svelte"
+import { page } from "$app/state"
+import type { CoursepackDetail } from "$lib/api"
+import { api } from "$lib/api"
+import ProgressBar from "$lib/components/ProgressBar.svelte"
+import type { ProgressState } from "$lib/stores/progress.svelte"
 
-	const progressStore: { state: ProgressState } = getContext("progress")
+const progressStore: { state: ProgressState } = getContext("progress")
 
-	let coursepack = $state<CoursepackDetail | null>(null)
-	let loading = $state(true)
-	let error = $state<string | null>(null)
-	let seeding = $state(false)
+let coursepack = $state<CoursepackDetail | null>(null)
+let loading = $state(true)
+let error = $state<string | null>(null)
+let seeding = $state(false)
 
-	const coursepackId = $derived(page.params.coursepackId)
+const coursepackId = $derived(page.params.coursepackId)
 
-	$effect(() => {
-		loading = true
-		api.getCoursepack(coursepackId).then(
-			(data) => {
-				coursepack = data
-				loading = false
-			},
-			(err) => {
-				error = err.message
-				loading = false
-			},
-		)
-	})
+$effect(() => {
+	loading = true
+	api.getCoursepack(coursepackId).then(
+		(data) => {
+			coursepack = data
+			loading = false
+		},
+		(err) => {
+			error = err.message
+			loading = false
+		},
+	)
+})
 
-	async function handleSeed() {
-		seeding = true
-		try {
-			await api.seedCoursepack(coursepackId)
-		} catch (err) {
-			error = err instanceof Error ? err.message : String(err)
-		} finally {
-			seeding = false
-		}
+async function handleSeed() {
+	seeding = true
+	try {
+		await api.seedCoursepack(coursepackId)
+	} catch (err) {
+		error = err instanceof Error ? err.message : String(err)
+	} finally {
+		seeding = false
 	}
+}
 
-	function isModuleUnlocked(modIndex: number): boolean {
-		if (!coursepack || modIndex === 0) return true
-		const prevMod = coursepack.modules[modIndex - 1]
-		return prevMod.challenges.every(
-			(ch) =>
-				progressStore.state.coursepacks[coursepackId]?.modules[prevMod.id]?.challenges[ch.id]
-					?.completed,
-		)
-	}
+function isModuleUnlocked(modIndex: number): boolean {
+	if (!coursepack || modIndex === 0) return true
+	const prevMod = coursepack.modules[modIndex - 1]
+	return prevMod.challenges.every(
+		(ch) =>
+			progressStore.state.coursepacks[coursepackId]?.modules[prevMod.id]?.challenges[ch.id]
+				?.completed,
+	)
+}
 
-	function isChallengeAvailable(modIndex: number, chIndex: number): boolean {
-		if (!isModuleUnlocked(modIndex)) return false
-		if (chIndex === 0) return true
-		const mod = coursepack!.modules[modIndex]
-		const prevCh = mod.challenges[chIndex - 1]
-		return (
-			progressStore.state.coursepacks[coursepackId]?.modules[mod.id]?.challenges[prevCh.id]
-				?.completed === true
-		)
-	}
+function isChallengeAvailable(modIndex: number, chIndex: number): boolean {
+	if (!isModuleUnlocked(modIndex)) return false
+	if (chIndex === 0) return true
+	const mod = coursepack!.modules[modIndex]
+	const prevCh = mod.challenges[chIndex - 1]
+	return (
+		progressStore.state.coursepacks[coursepackId]?.modules[mod.id]?.challenges[prevCh.id]
+			?.completed === true
+	)
+}
 
-	function isChallengeCompleted(modId: string, chId: string): boolean {
-		return (
-			progressStore.state.coursepacks[coursepackId]?.modules[modId]?.challenges[chId]
-				?.completed === true
-		)
-	}
+function isChallengeCompleted(modId: string, chId: string): boolean {
+	return (
+		progressStore.state.coursepacks[coursepackId]?.modules[modId]?.challenges[chId]?.completed ===
+		true
+	)
+}
 
-	function getModuleCompletedCount(mod: CoursepackDetail["modules"][number]): number {
-		return mod.challenges.filter((ch) => isChallengeCompleted(mod.id, ch.id)).length
-	}
+function getModuleCompletedCount(mod: CoursepackDetail["modules"][number]): number {
+	return mod.challenges.filter((ch) => isChallengeCompleted(mod.id, ch.id)).length
+}
 
-	function findFirstAvailable(): string | null {
-		if (!coursepack) return null
-		for (let mi = 0; mi < coursepack.modules.length; mi++) {
-			if (!isModuleUnlocked(mi)) continue
-			const mod = coursepack.modules[mi]
-			for (let ci = 0; ci < mod.challenges.length; ci++) {
-				if (!isChallengeCompleted(mod.id, mod.challenges[ci].id) && isChallengeAvailable(mi, ci)) {
-					return `/learn/${coursepackId}/${mod.id}/${mod.challenges[ci].id}`
-				}
+function findFirstAvailable(): string | null {
+	if (!coursepack) return null
+	for (let mi = 0; mi < coursepack.modules.length; mi++) {
+		if (!isModuleUnlocked(mi)) continue
+		const mod = coursepack.modules[mi]
+		for (let ci = 0; ci < mod.challenges.length; ci++) {
+			if (!isChallengeCompleted(mod.id, mod.challenges[ci].id) && isChallengeAvailable(mi, ci)) {
+				return `/learn/${coursepackId}/${mod.id}/${mod.challenges[ci].id}`
 			}
 		}
-		return null
 	}
+	return null
+}
 </script>
 
 <div class="h-full overflow-auto">

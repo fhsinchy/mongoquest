@@ -1,71 +1,67 @@
 <script lang="ts">
-	import ProgressBar from "./ProgressBar.svelte"
-	import type { ProgressState } from "$lib/stores/progress.svelte"
+import type { ProgressState } from "$lib/stores/progress.svelte"
+import ProgressBar from "./ProgressBar.svelte"
 
-	interface Module {
-		id: string
-		name: string
-		description: string
-		challenges: { id: string; title: string; xp: number }[]
-	}
+interface Module {
+	id: string
+	name: string
+	description: string
+	challenges: { id: string; title: string; xp: number }[]
+}
 
-	let {
-		modules,
-		coursepackId,
-		progress,
-		currentModuleId = "",
-		currentChallengeId = "",
-		collapsed = false,
-		ontoggle,
-	}: {
-		modules: Module[]
-		coursepackId: string
-		progress: ProgressState
-		currentModuleId?: string
-		currentChallengeId?: string
-		collapsed?: boolean
-		ontoggle?: () => void
-	} = $props()
+let {
+	modules,
+	coursepackId,
+	progress,
+	currentModuleId = "",
+	currentChallengeId = "",
+	collapsed = false,
+	ontoggle,
+}: {
+	modules: Module[]
+	coursepackId: string
+	progress: ProgressState
+	currentModuleId?: string
+	currentChallengeId?: string
+	collapsed?: boolean
+	ontoggle?: () => void
+} = $props()
 
-	function isModuleUnlocked(modIndex: number): boolean {
-		if (modIndex === 0) return true
-		const prevMod = modules[modIndex - 1]
-		return prevMod.challenges.every((ch) =>
-			progress.coursepacks[coursepackId]?.modules[prevMod.id]?.challenges[ch.id]?.completed,
-		)
-	}
+function isModuleUnlocked(modIndex: number): boolean {
+	if (modIndex === 0) return true
+	const prevMod = modules[modIndex - 1]
+	return prevMod.challenges.every(
+		(ch) => progress.coursepacks[coursepackId]?.modules[prevMod.id]?.challenges[ch.id]?.completed,
+	)
+}
 
-	function getChallengeState(
-		modIndex: number,
-		modId: string,
-		chId: string,
-		chIndex: number,
-	): "locked" | "available" | "completed" | "current" {
-		if (!isModuleUnlocked(modIndex)) return "locked"
-		const completed =
-			progress.coursepacks[coursepackId]?.modules[modId]?.challenges[chId]?.completed
-		if (completed) return "completed"
-		if (modId === currentModuleId && chId === currentChallengeId) return "current"
+function getChallengeState(
+	modIndex: number,
+	modId: string,
+	chId: string,
+	chIndex: number,
+): "locked" | "available" | "completed" | "current" {
+	if (!isModuleUnlocked(modIndex)) return "locked"
+	const completed = progress.coursepacks[coursepackId]?.modules[modId]?.challenges[chId]?.completed
+	if (completed) return "completed"
+	if (modId === currentModuleId && chId === currentChallengeId) return "current"
 
-		// Check if all prior challenges in this module are completed
-		const mod = modules[modIndex]
-		for (let i = 0; i < chIndex; i++) {
-			const prevCh = mod.challenges[i]
-			if (
-				!progress.coursepacks[coursepackId]?.modules[modId]?.challenges[prevCh.id]?.completed
-			) {
-				return "locked"
-			}
+	// Check if all prior challenges in this module are completed
+	const mod = modules[modIndex]
+	for (let i = 0; i < chIndex; i++) {
+		const prevCh = mod.challenges[i]
+		if (!progress.coursepacks[coursepackId]?.modules[modId]?.challenges[prevCh.id]?.completed) {
+			return "locked"
 		}
-		return "available"
 	}
+	return "available"
+}
 
-	function getModuleCompletedCount(mod: Module): number {
-		return mod.challenges.filter(
-			(ch) =>
-				progress.coursepacks[coursepackId]?.modules[mod.id]?.challenges[ch.id]?.completed,
-		).length
-	}
+function getModuleCompletedCount(mod: Module): number {
+	return mod.challenges.filter(
+		(ch) => progress.coursepacks[coursepackId]?.modules[mod.id]?.challenges[ch.id]?.completed,
+	).length
+}
 </script>
 
 <aside

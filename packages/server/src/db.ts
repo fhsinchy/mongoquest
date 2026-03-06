@@ -1,4 +1,4 @@
-import { MongoClient, type Db } from "mongodb"
+import { type Db, MongoClient } from "mongodb"
 
 const MONGO_URI = process.env.MONGO_URI ?? "mongodb://admin:mongoquest@localhost:27017"
 const READONLY_USER = process.env.MONGO_READONLY_USER ?? "mongoquest_readonly"

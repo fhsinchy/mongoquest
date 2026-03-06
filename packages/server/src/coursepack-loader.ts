@@ -1,12 +1,12 @@
 import { readdir, readFile } from "node:fs/promises"
 import { join, resolve } from "node:path"
 import {
-	CoursepackManifestSchema,
-	ModuleSchema,
+	type Challenge,
 	ChallengeSchema,
 	type CoursepackManifest,
+	CoursepackManifestSchema,
 	type Module,
-	type Challenge,
+	ModuleSchema,
 } from "@mongoquest/shared"
 
 export interface LoadedCoursepack {

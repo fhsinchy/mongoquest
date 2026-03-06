@@ -1,20 +1,20 @@
 <script lang="ts">
-	interface ToastMessage {
-		id: number
-		text: string
-		type: "success" | "error" | "info"
-	}
+interface ToastMessage {
+	id: number
+	text: string
+	type: "success" | "error" | "info"
+}
 
-	let messages = $state<ToastMessage[]>([])
-	let nextId = 0
+let messages = $state<ToastMessage[]>([])
+let nextId = 0
 
-	export function show(text: string, type: ToastMessage["type"] = "info") {
-		const id = nextId++
-		messages = [...messages, { id, text, type }]
-		setTimeout(() => {
-			messages = messages.filter((m) => m.id !== id)
-		}, 3500)
-	}
+export function show(text: string, type: ToastMessage["type"] = "info") {
+	const id = nextId++
+	messages = [...messages, { id, text, type }]
+	setTimeout(() => {
+		messages = messages.filter((m) => m.id !== id)
+	}, 3500)
+}
 </script>
 
 {#if messages.length > 0}

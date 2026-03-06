@@ -1,5 +1,5 @@
-import { getDb } from "./db"
 import type { LoadedCoursepack } from "./coursepack-loader"
+import { getDb } from "./db"
 
 export async function seedCoursepack(
 	coursepack: LoadedCoursepack,

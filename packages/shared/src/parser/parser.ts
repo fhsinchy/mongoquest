@@ -1,5 +1,5 @@
 import { tokenize } from "./tokenizer"
-import { type Token, type MongoshAST, type ChainedCall, ParseError } from "./types"
+import { type ChainedCall, type MongoshAST, ParseError, type Token } from "./types"
 
 const ALLOWED_METHODS = new Set([
 	"find",
@@ -68,14 +68,11 @@ export function parse(input: string): MongoshAST {
 		}
 
 		// Handle special constructors like ObjectId("..."), ISODate("...")
-		if (
-			tok.type === "IDENTIFIER" &&
-			["ObjectId", "ISODate", "NumberInt"].includes(tok.value)
-		) {
+		if (tok.type === "IDENTIFIER" && ["ObjectId", "ISODate", "NumberInt"].includes(tok.value)) {
 			const constructorName = tok.value
 			pos++
 			expect("LPAREN")
-			let arg: unknown = undefined
+			let arg: unknown
 			if (current().type !== "RPAREN") {
 				arg = parseValue()
 			}

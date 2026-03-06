@@ -1,34 +1,34 @@
 <script lang="ts">
-	import MonacoEditor from "./MonacoEditor.svelte"
-	import OutputDisplay from "./OutputDisplay.svelte"
+import type MonacoEditor from "./MonacoEditor.svelte"
+import OutputDisplay from "./OutputDisplay.svelte"
 
-	let {
-		starterCode = "",
-		collections = [] as string[],
-		result = null,
-		success = false,
-		feedback = null,
-		error = null,
-		loading = false,
-		onrun,
-	}: {
-		starterCode: string
-		collections?: string[]
-		result: unknown
-		success: boolean
-		feedback: string | null
-		error: string | null
-		loading: boolean
-		onrun: (query: string) => void
-	} = $props()
+let {
+	starterCode = "",
+	collections = [] as string[],
+	result = null,
+	success = false,
+	feedback = null,
+	error = null,
+	loading = false,
+	onrun,
+}: {
+	starterCode: string
+	collections?: string[]
+	result: unknown
+	success: boolean
+	feedback: string | null
+	error: string | null
+	loading: boolean
+	onrun: (query: string) => void
+} = $props()
 
-	let editorRef: MonacoEditor | undefined
-	let code = $state(starterCode)
+let editorRef: MonacoEditor | undefined
+let code = $state(starterCode)
 
-	function handleRun() {
-		const query = editorRef?.getValue() ?? code
-		onrun(query)
-	}
+function handleRun() {
+	const query = editorRef?.getValue() ?? code
+	onrun(query)
+}
 </script>
 
 <div class="flex flex-col h-full">

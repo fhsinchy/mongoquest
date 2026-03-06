@@ -1,6 +1,6 @@
-import { describe, test, expect, beforeAll, afterAll } from "bun:test"
-import { app, coursepacks } from "../index"
+import { afterAll, beforeAll, describe, expect, test } from "bun:test"
 import { closeConnections } from "../db"
+import { app } from "../index"
 
 function request(path: string, options?: RequestInit) {
 	return app.request(path, options)

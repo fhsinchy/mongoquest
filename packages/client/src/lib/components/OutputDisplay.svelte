@@ -1,21 +1,21 @@
 <script lang="ts">
-	let {
-		result = null,
-		success = false,
-		feedback = null,
-		error = null,
-		loading = false,
-	}: {
-		result: unknown
-		success: boolean
-		feedback: string | null
-		error: string | null
-		loading: boolean
-	} = $props()
+let {
+	result = null,
+	success = false,
+	feedback = null,
+	error = null,
+	loading = false,
+}: {
+	result: unknown
+	success: boolean
+	feedback: string | null
+	error: string | null
+	loading: boolean
+} = $props()
 
-	let formattedResult = $derived(
-		result !== null && result !== undefined ? JSON.stringify(result, null, 2) : null,
-	)
+let formattedResult = $derived(
+	result !== null && result !== undefined ? JSON.stringify(result, null, 2) : null,
+)
 </script>
 
 <div class="flex flex-col h-full">

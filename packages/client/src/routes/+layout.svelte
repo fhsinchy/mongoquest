@@ -1,12 +1,12 @@
 <script lang="ts">
-	import "../app.css"
-	import { createProgressStore } from "$lib/stores/progress.svelte"
-	import { setContext } from "svelte"
+import "../app.css"
+import { setContext } from "svelte"
+import { createProgressStore } from "$lib/stores/progress.svelte"
 
-	let { children } = $props()
+let { children } = $props()
 
-	const progressStore = createProgressStore()
-	setContext("progress", progressStore)
+const progressStore = createProgressStore()
+setContext("progress", progressStore)
 </script>
 
 <svelte:head>

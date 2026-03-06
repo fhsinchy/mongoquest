@@ -1,9 +1,9 @@
 import { Hono } from "hono"
+import { serveStatic } from "hono/bun"
 import { cors } from "hono/cors"
 import { logger } from "hono/logger"
-import { serveStatic } from "hono/bun"
-import { checkConnection } from "./db"
 import { loadAllCoursepacks } from "./coursepack-loader"
+import { checkConnection } from "./db"
 import { createCoursepackRoutes } from "./routes/coursepacks"
 import { createRunRoutes } from "./routes/run"
 import { syncRouter } from "./routes/sync"
@@ -17,10 +17,7 @@ app.use("/api/*", cors())
 // Global error handler
 app.onError((err, c) => {
 	console.error("Unhandled error:", err)
-	return c.json(
-		{ error: { code: "INTERNAL_ERROR", message: "An unexpected error occurred" } },
-		500,
-	)
+	return c.json({ error: { code: "INTERNAL_ERROR", message: "An unexpected error occurred" } }, 500)
 })
 
 // Load coursepacks

@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test"
+import { expect, test } from "@playwright/test"
 
 // Helper to seed the coursepack before running challenges
 async function seedAndNavigateToFirstChallenge(page: import("@playwright/test").Page) {
@@ -17,7 +17,10 @@ async function seedAndNavigateToFirstChallenge(page: import("@playwright/test").
 	await expect(page).toHaveURL(/\/learn\//)
 
 	// Find and click first challenge link
-	const challengeLink = page.locator('a[href*="/learn/"]').filter({ hasText: /start|challenge|find/i }).first()
+	const challengeLink = page
+		.locator('a[href*="/learn/"]')
+		.filter({ hasText: /start|challenge|find/i })
+		.first()
 	await expect(challengeLink).toBeVisible({ timeout: 10_000 })
 	await challengeLink.click()
 

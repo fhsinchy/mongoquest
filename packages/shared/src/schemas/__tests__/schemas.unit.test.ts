@@ -1,5 +1,5 @@
 import { describe, expect, it } from "bun:test"
-import { CoursepackManifestSchema, ModuleSchema, ChallengeSchema } from "../index"
+import { ChallengeSchema, CoursepackManifestSchema, ModuleSchema } from "../index"
 
 describe("CoursepackManifestSchema", () => {
 	const validManifest = {

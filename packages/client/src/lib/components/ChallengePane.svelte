@@ -1,21 +1,21 @@
 <script lang="ts">
-	let {
-		title,
-		description,
-		concept,
-		hint,
-		xp,
-		type,
-	}: {
-		title: string
-		description: string
-		concept: string
-		hint: string
-		xp: number
-		type: string
-	} = $props()
+let {
+	title,
+	description,
+	concept,
+	hint,
+	xp,
+	type,
+}: {
+	title: string
+	description: string
+	concept: string
+	hint: string
+	xp: number
+	type: string
+} = $props()
 
-	let showHint = $state(false)
+let showHint = $state(false)
 </script>
 
 <div class="flex flex-col h-full overflow-auto">

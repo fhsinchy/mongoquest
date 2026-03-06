@@ -1,4 +1,4 @@
-import { parse, translate, ParseError, type QueryPlan } from "@mongoquest/shared"
+import { parse, type QueryPlan, translate } from "@mongoquest/shared"
 import { getDb } from "./db"
 
 const READ_OPERATIONS = new Set(["find", "findOne", "countDocuments"])

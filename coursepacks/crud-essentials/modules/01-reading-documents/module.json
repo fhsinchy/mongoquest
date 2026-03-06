@@ -2,5 +2,14 @@
 	"id": "01-reading-documents",
 	"name": "Reading Documents",
 	"description": "Learn to query MongoDB collections using find, findOne, filters, projections, and sorting.",
-	"challenges": ["01-find-all", "02-find-by-field", "03-find-one", "04-projection", "05-sort", "06-limit", "07-skip", "08-count-documents"]
+	"challenges": [
+		"01-find-all",
+		"02-find-by-field",
+		"03-find-one",
+		"04-projection",
+		"05-sort",
+		"06-limit",
+		"07-skip",
+		"08-count-documents"
+	]
 }

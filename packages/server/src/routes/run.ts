@@ -1,9 +1,9 @@
-import { Hono } from "hono"
 import { ParseError } from "@mongoquest/shared"
+import { Hono } from "hono"
 import type { LoadedCoursepack } from "../coursepack-loader"
+import { getDb } from "../db"
 import { executeQuery, READ_OPERATIONS } from "../executor"
 import { resetCollection } from "../seeder"
-import { getDb } from "../db"
 import { compareResults, runDocumentChecks } from "../validation"
 
 export function createRunRoutes(coursepacks: Map<string, LoadedCoursepack>) {
@@ -13,7 +13,12 @@ export function createRunRoutes(coursepacks: Map<string, LoadedCoursepack>) {
 		const cp = coursepacks.get(c.req.param("id"))
 		if (!cp) {
 			return c.json(
-				{ error: { code: "COURSEPACK_NOT_FOUND", message: `Coursepack '${c.req.param("id")}' not found` } },
+				{
+					error: {
+						code: "COURSEPACK_NOT_FOUND",
+						message: `Coursepack '${c.req.param("id")}' not found`,
+					},
+				},
 				404,
 			)
 		}
@@ -21,7 +26,12 @@ export function createRunRoutes(coursepacks: Map<string, LoadedCoursepack>) {
 		const mod = cp.modules.find((m) => m.meta.id === c.req.param("moduleId"))
 		if (!mod) {
 			return c.json(
-				{ error: { code: "MODULE_NOT_FOUND", message: `Module '${c.req.param("moduleId")}' not found` } },
+				{
+					error: {
+						code: "MODULE_NOT_FOUND",
+						message: `Module '${c.req.param("moduleId")}' not found`,
+					},
+				},
 				404,
 			)
 		}
@@ -29,7 +39,12 @@ export function createRunRoutes(coursepacks: Map<string, LoadedCoursepack>) {
 		const challenge = mod.challenges.find((ch) => ch.id === c.req.param("challengeId"))
 		if (!challenge) {
 			return c.json(
-				{ error: { code: "CHALLENGE_NOT_FOUND", message: `Challenge '${c.req.param("challengeId")}' not found` } },
+				{
+					error: {
+						code: "CHALLENGE_NOT_FOUND",
+						message: `Challenge '${c.req.param("challengeId")}' not found`,
+					},
+				},
 				404,
 			)
 		}
@@ -56,10 +71,18 @@ export function createRunRoutes(coursepacks: Map<string, LoadedCoursepack>) {
 			executionResult = await executeQuery(body.query, dbName)
 		} catch (err) {
 			if (err instanceof ParseError) {
-				return c.json({ success: false, result: null, feedback: null, error: err.toUserMessage() }, 400)
+				return c.json(
+					{ success: false, result: null, feedback: null, error: err.toUserMessage() },
+					400,
+				)
 			}
 			return c.json(
-				{ success: false, result: null, feedback: null, error: err instanceof Error ? err.message : String(err) },
+				{
+					success: false,
+					result: null,
+					feedback: null,
+					error: err instanceof Error ? err.message : String(err),
+				},
 				400,
 			)
 		}
@@ -159,5 +182,5 @@ function getOperationFromQuery(query: string): string {
 	if (!match) return "find"
 	// Get the last method match (handles chaining like db.col.find())
 	const methods = [...query.matchAll(/\.(\w+)\s*\(/g)]
-	return methods.length >= 2 ? methods[1][1] : methods[0]?.[1] ?? "find"
+	return methods.length >= 2 ? methods[1][1] : (methods[0]?.[1] ?? "find")
 }

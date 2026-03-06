@@ -1,10 +1,10 @@
 import { describe, expect, test } from "bun:test"
 import {
 	calculateStreak,
-	mergeProgress,
-	markChallengeComplete,
-	isChallengeCompleted,
 	defaultProgress,
+	isChallengeCompleted,
+	markChallengeComplete,
+	mergeProgress,
 	type ProgressState,
 } from "../progress.svelte"
 

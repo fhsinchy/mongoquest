@@ -22,7 +22,10 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
 	const data = await res.json()
 
 	if (!res.ok) {
-		throw new ApiRequestError(res.status, data.error ?? { code: "UNKNOWN", message: res.statusText })
+		throw new ApiRequestError(
+			res.status,
+			data.error ?? { code: "UNKNOWN", message: res.statusText },
+		)
 	}
 
 	return data as T
@@ -95,10 +98,10 @@ export const api = {
 	},
 
 	runChallenge(cpId: string, modId: string, chId: string, query: string) {
-		return request<RunResult>(
-			`/coursepacks/${cpId}/modules/${modId}/challenges/${chId}/run`,
-			{ method: "POST", body: JSON.stringify({ query }) },
-		)
+		return request<RunResult>(`/coursepacks/${cpId}/modules/${modId}/challenges/${chId}/run`, {
+			method: "POST",
+			body: JSON.stringify({ query }),
+		})
 	},
 
 	syncGistSave(token: string, gistId: string, progress: unknown) {
@@ -109,7 +112,9 @@ export const api = {
 	},
 
 	syncGistLoad(token: string, gistId: string) {
-		return request<{ progress: unknown }>(`/sync/gist?token=${encodeURIComponent(token)}&gistId=${encodeURIComponent(gistId)}`)
+		return request<{ progress: unknown }>(
+			`/sync/gist?token=${encodeURIComponent(token)}&gistId=${encodeURIComponent(gistId)}`,
+		)
 	},
 }
 

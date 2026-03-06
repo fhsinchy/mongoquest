@@ -2,5 +2,13 @@
 	"id": "05-query-operators",
 	"name": "Query Operators",
 	"description": "Master MongoDB query operators including comparison, logical, element, and array operators.",
-	"challenges": ["01-comparison", "02-in-operator", "03-regex", "04-exists", "05-and-or", "06-nested-fields", "07-array-queries"]
+	"challenges": [
+		"01-comparison",
+		"02-in-operator",
+		"03-regex",
+		"04-exists",
+		"05-and-or",
+		"06-nested-fields",
+		"07-array-queries"
+	]
 }

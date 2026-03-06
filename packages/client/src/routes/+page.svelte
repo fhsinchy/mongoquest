@@ -1,29 +1,29 @@
 <script lang="ts">
-	import { api } from "$lib/api"
-	import type { CoursepackSummary } from "$lib/api"
+import type { CoursepackSummary } from "$lib/api"
+import { api } from "$lib/api"
 
-	let coursepacks = $state<CoursepackSummary[]>([])
-	let loading = $state(true)
-	let error = $state<string | null>(null)
+let coursepacks = $state<CoursepackSummary[]>([])
+let loading = $state(true)
+let error = $state<string | null>(null)
 
-	$effect(() => {
-		api.getCoursepacks().then(
-			(data) => {
-				coursepacks = data
-				loading = false
-			},
-			(err) => {
-				error = err.message
-				loading = false
-			},
-		)
-	})
+$effect(() => {
+	api.getCoursepacks().then(
+		(data) => {
+			coursepacks = data
+			loading = false
+		},
+		(err) => {
+			error = err.message
+			loading = false
+		},
+	)
+})
 
-	const difficultyColor: Record<string, string> = {
-		beginner: "text-emerald border-emerald/20 bg-emerald-dim/30",
-		intermediate: "text-amber border-amber/20 bg-amber-dim/30",
-		advanced: "text-ruby border-ruby/20 bg-ruby-dim/30",
-	}
+const difficultyColor: Record<string, string> = {
+	beginner: "text-emerald border-emerald/20 bg-emerald-dim/30",
+	intermediate: "text-amber border-amber/20 bg-amber-dim/30",
+	advanced: "text-ruby border-ruby/20 bg-ruby-dim/30",
+}
 </script>
 
 <div class="h-full overflow-auto">
