@@ -1,0 +1,41 @@
+services:
+  app:
+    image: docker.io/oven/bun:1
+    volumes:
+      - ..:/workspace:cached
+    command: sleep infinity
+    environment:
+      MONGO_URI: mongodb://admin:mongoquest@mongo:27017
+      COURSEPACK_DIR: /workspace/coursepacks
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  mongo:
+    image: docker.io/mongo:7.0
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: mongoquest
+    volumes:
+      - mongo-data:/data/db
+      - ../docker/mongo-init.js:/docker-entrypoint-initdb.d/init.js:ro
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "mongosh",
+          "-u",
+          "admin",
+          "-p",
+          "mongoquest",
+          "--authenticationDatabase",
+          "admin",
+          "--eval",
+          "db.adminCommand('ping')",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mongo-data:

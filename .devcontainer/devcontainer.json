@@ -1,0 +1,24 @@
+{
+	"name": "MongoQuest",
+	"dockerComposeFile": "docker-compose.dev.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": { "version": "22" }
+	},
+	"forwardPorts": [3000],
+	"portsAttributes": {
+		"3000": { "label": "MongoQuest", "onAutoForward": "openBrowser" }
+	},
+	"postCreateCommand": "bash .devcontainer/setup.sh",
+	"postStartCommand": "bun run dev",
+	"customizations": {
+		"vscode": {
+			"extensions": ["svelte.svelte-vscode", "biomejs.biome", "mongodb.mongodb-vscode"],
+			"settings": {
+				"editor.defaultFormatter": "biomejs.biome",
+				"editor.formatOnSave": true
+			}
+		}
+	}
+}
