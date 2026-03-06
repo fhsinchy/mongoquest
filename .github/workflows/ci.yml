@@ -65,7 +65,7 @@ jobs:
           node-version: 22
       - uses: oven-sh/setup-bun@v2
       - run: bun install --frozen-lockfile
-      - run: npx playwright install --with-deps chromium
+      - run: node packages/client/node_modules/.bin/playwright install --with-deps chromium
       - run: docker compose up -d
       - name: Wait for app health
         run: |
@@ -79,7 +79,7 @@ jobs:
           echo "App failed to become healthy"
           docker compose logs
           exit 1
-      - run: npx playwright test --config packages/client/playwright.config.ts
+      - run: node packages/client/node_modules/.bin/playwright test --config packages/client/playwright.config.ts
       - name: Cleanup
         if: always()
         run: docker compose down
