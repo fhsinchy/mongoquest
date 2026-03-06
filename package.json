@@ -13,7 +13,7 @@
 		"test": "bun test",
 		"test:unit": "bun test --filter unit",
 		"test:integration": "bun test --filter integration",
-		"test:e2e": "bunx playwright test"
+		"test:e2e": "bunx playwright test --config packages/client/playwright.config.ts"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.4.5",
