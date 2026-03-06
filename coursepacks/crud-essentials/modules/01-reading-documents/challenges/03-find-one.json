@@ -1,0 +1,19 @@
+{
+	"id": "03-find-one",
+	"title": "Find a Single Customer",
+	"description": "Find the customer named Alice Johnson.",
+	"concept": "findOne() returns a single document matching the filter, or null if no match exists. Unlike find(), it does not return an array.",
+	"hint": "Use findOne with a name filter: db.customers.findOne({name: \"Alice Johnson\"})",
+	"collection": "customers",
+	"type": "findOne",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {
+				"name": "Alice Johnson"
+			}
+		}
+	},
+	"starterCode": "db.customers.findOne({})",
+	"xp": 10
+}

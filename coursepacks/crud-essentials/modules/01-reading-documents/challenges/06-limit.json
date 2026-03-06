@@ -1,0 +1,22 @@
+{
+	"id": "06-limit",
+	"title": "Top 5 Expensive Products",
+	"description": "Find the 5 most expensive products.",
+	"concept": "Chain .limit(n) to restrict the number of returned documents. Combined with .sort(), this is useful for \"top N\" queries.",
+	"hint": "Sort descending by price and limit to 5: db.products.find().sort({price: -1}).limit(5)",
+	"collection": "products",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {},
+			"sort": {
+				"price": -1
+			},
+			"limit": 5
+		},
+		"orderSensitive": true
+	},
+	"starterCode": "db.products.find()",
+	"xp": 15
+}

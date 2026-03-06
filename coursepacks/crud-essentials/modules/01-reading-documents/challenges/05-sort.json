@@ -1,0 +1,21 @@
+{
+	"id": "05-sort",
+	"title": "Products by Price",
+	"description": "Find all products sorted by price from lowest to highest.",
+	"concept": "Chain .sort() after find() to order results. Use {field: 1} for ascending or {field: -1} for descending order.",
+	"hint": "Chain sort after find: db.products.find().sort({price: 1})",
+	"collection": "products",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {},
+			"sort": {
+				"price": 1
+			}
+		},
+		"orderSensitive": true
+	},
+	"starterCode": "db.products.find()",
+	"xp": 15
+}

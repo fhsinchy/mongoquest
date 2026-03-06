@@ -1,0 +1,22 @@
+{
+	"id": "04-projection",
+	"title": "Customer Names and Emails",
+	"description": "Retrieve only the name and email of all customers, excluding the _id field.",
+	"concept": "Projections control which fields are returned. Use {field: 1} to include or {field: 0} to exclude. When including fields, _id is returned by default unless explicitly excluded with {_id: 0}.",
+	"hint": "Add a projection as the second argument: db.customers.find({}, {name: 1, email: 1, _id: 0})",
+	"collection": "customers",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {},
+			"projection": {
+				"name": 1,
+				"email": 1,
+				"_id": 0
+			}
+		}
+	},
+	"starterCode": "db.customers.find({})",
+	"xp": 15
+}

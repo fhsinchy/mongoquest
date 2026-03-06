@@ -1,0 +1,23 @@
+{
+	"id": "07-skip",
+	"title": "Second Page of Products",
+	"description": "Get the second page of products (items 11-20) when sorted alphabetically by name, with 10 items per page.",
+	"concept": "Chain .skip(n) to skip the first n documents. Combined with .limit(), this enables pagination. For page 2 with 10 items per page, skip 10 and limit 10.",
+	"hint": "Sort by name, skip 10, limit 10: db.products.find().sort({name: 1}).skip(10).limit(10)",
+	"collection": "products",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {},
+			"sort": {
+				"name": 1
+			},
+			"skip": 10,
+			"limit": 10
+		},
+		"orderSensitive": true
+	},
+	"starterCode": "db.products.find()",
+	"xp": 15
+}

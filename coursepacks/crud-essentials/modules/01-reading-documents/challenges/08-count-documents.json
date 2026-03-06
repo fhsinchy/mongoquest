@@ -1,0 +1,19 @@
+{
+	"id": "08-count-documents",
+	"title": "Count Pending Orders",
+	"description": "Count how many orders have a status of \"pending\".",
+	"concept": "countDocuments() returns the number of documents matching a filter. It is more efficient than fetching all documents and counting them in your application.",
+	"hint": "Use countDocuments with a filter: db.orders.countDocuments({status: \"pending\"})",
+	"collection": "orders",
+	"type": "countDocuments",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {
+				"status": "pending"
+			}
+		}
+	},
+	"starterCode": "db.orders.countDocuments({})",
+	"xp": 10
+}

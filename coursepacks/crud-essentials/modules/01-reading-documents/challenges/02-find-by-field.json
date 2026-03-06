@@ -1,0 +1,19 @@
+{
+	"id": "02-find-by-field",
+	"title": "Find Shipped Orders",
+	"description": "Find all orders that have been shipped.",
+	"concept": "Pass a filter document to find() to match specific field values. The filter {status: \"shipped\"} matches all documents where the status field equals \"shipped\".",
+	"hint": "Use a filter object: db.orders.find({status: \"shipped\"})",
+	"collection": "orders",
+	"type": "find",
+	"validation": {
+		"strategy": "output_match",
+		"expected": {
+			"filter": {
+				"status": "shipped"
+			}
+		}
+	},
+	"starterCode": "db.orders.find({})",
+	"xp": 10
+}
