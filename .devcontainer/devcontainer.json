@@ -6,9 +6,10 @@
 	"features": {
 		"ghcr.io/devcontainers/features/node:1": { "version": "22" }
 	},
-	"forwardPorts": [3000],
+	"forwardPorts": [5173],
 	"portsAttributes": {
-		"3000": { "label": "MongoQuest", "onAutoForward": "openBrowser" }
+		"5173": { "label": "MongoQuest", "onAutoForward": "openBrowser", "visibility": "public" },
+		"3000": { "label": "API Server", "onAutoForward": "silent" }
 	},
 	"postCreateCommand": "bash .devcontainer/setup.sh",
 	"postStartCommand": "bun run dev",
