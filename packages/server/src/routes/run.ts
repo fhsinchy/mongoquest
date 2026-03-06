@@ -1,4 +1,4 @@
-import { ParseError } from "@mongoquest/shared"
+import { ParseError, type QueryPlan } from "@mongoquest/shared"
 import { Hono } from "hono"
 import type { LoadedCoursepack } from "../coursepack-loader"
 import { getDb } from "../db"
@@ -114,9 +114,16 @@ export function createRunRoutes(coursepacks: Map<string, LoadedCoursepack>) {
 		}
 
 		// output_match strategy
+		const expectedConfig = validation.expected
+
+		// Check query plan matches expected config (filter, sort, projection, etc.)
+		const planFeedback = checkQueryPlan(plan, expectedConfig)
+		if (planFeedback) {
+			return c.json({ success: false, result, feedback: planFeedback, error: null })
+		}
+
 		const db = await getDb(dbName)
 		const collection = db.collection(challenge.collection)
-		const expectedConfig = validation.expected
 
 		// Build expected results by querying the DB with the challenge's expected config
 		let expectedDocs: unknown[]
@@ -173,6 +180,54 @@ export function createRunRoutes(coursepacks: Map<string, LoadedCoursepack>) {
 	})
 
 	return router
+}
+
+function checkQueryPlan(plan: QueryPlan, expected: Record<string, unknown>): string | null {
+	const expectedFilter = (expected.filter as Record<string, unknown>) ?? {}
+	const actualFilter = plan.filter ?? {}
+
+	if (JSON.stringify(sortKeys(actualFilter)) !== JSON.stringify(sortKeys(expectedFilter))) {
+		const hasFilter = Object.keys(expectedFilter).length > 0
+		if (hasFilter && Object.keys(actualFilter).length === 0) {
+			return `Expected a filter of ${JSON.stringify(expectedFilter)} but your query has no filter`
+		}
+		return `Expected filter ${JSON.stringify(expectedFilter)} but got ${JSON.stringify(actualFilter)}`
+	}
+
+	const expectedSort = expected.sort as Record<string, number> | undefined
+	const actualSort = plan.options.sort
+	if (expectedSort && JSON.stringify(actualSort) !== JSON.stringify(expectedSort)) {
+		return `Expected sort ${JSON.stringify(expectedSort)} but got ${JSON.stringify(actualSort ?? {})}`
+	}
+
+	const expectedProjection = expected.projection as Record<string, number> | undefined
+	const actualProjection = plan.options.projection
+	if (
+		expectedProjection &&
+		JSON.stringify(actualProjection) !== JSON.stringify(expectedProjection)
+	) {
+		return `Expected projection ${JSON.stringify(expectedProjection)} but got ${JSON.stringify(actualProjection ?? {})}`
+	}
+
+	const expectedLimit = expected.limit as number | undefined
+	if (expectedLimit !== undefined && plan.options.limit !== expectedLimit) {
+		return `Expected limit of ${expectedLimit} but got ${plan.options.limit ?? "none"}`
+	}
+
+	const expectedSkip = expected.skip as number | undefined
+	if (expectedSkip !== undefined && plan.options.skip !== expectedSkip) {
+		return `Expected skip of ${expectedSkip} but got ${plan.options.skip ?? "none"}`
+	}
+
+	return null
+}
+
+function sortKeys(obj: Record<string, unknown>): Record<string, unknown> {
+	const sorted: Record<string, unknown> = {}
+	for (const key of Object.keys(obj).sort()) {
+		sorted[key] = obj[key]
+	}
+	return sorted
 }
 
 function getOperationFromQuery(query: string): string {
