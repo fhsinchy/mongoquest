@@ -6,6 +6,7 @@ import { checkConnection } from "./db"
 import { loadAllCoursepacks } from "./coursepack-loader"
 import { createCoursepackRoutes } from "./routes/coursepacks"
 import { createRunRoutes } from "./routes/run"
+import { syncRouter } from "./routes/sync"
 
 const app = new Hono()
 
@@ -38,6 +39,7 @@ app.get("/api/health", async (c) => {
 
 app.route("/api/coursepacks", createCoursepackRoutes(coursepacks))
 app.route("/api/coursepacks", createRunRoutes(coursepacks))
+app.route("/api/sync", syncRouter)
 
 // Serve static frontend
 app.use("/*", serveStatic({ root: "../client/build" }))
