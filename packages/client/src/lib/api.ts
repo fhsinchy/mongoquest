@@ -121,5 +121,5 @@ export const api = {
 	},
 }
 
+export type { ChallengeDetail, CoursepackDetail, CoursepackSummary, RunResult }
 export { ApiRequestError }
-export type { CoursepackSummary, CoursepackDetail, ChallengeDetail, RunResult }
